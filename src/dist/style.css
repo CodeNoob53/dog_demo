@@ -111,7 +111,7 @@
 
 .hero {
   height: 690px;
-  background-image: linear-gradient(0deg, rgba(53, 37, 22, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(https://c.animaapp.com/mck8g5i3vEp5jz/img/dog-1.png);
+  background-image: linear-gradient(0deg, rgba(53, 37, 22, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(/src/assets/dog_hero.jpg);
   background-size: cover;
   background-position: center;
   position: relative;

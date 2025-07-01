@@ -378,35 +378,6 @@
     max-width: 100%;
   }
 }
-@media (max-width: 480px) {
-  .culture {
-    height: 300px;
-  }
-  .culture__container {
-    padding: 0 15px;
-  }
-  .culture__content {
-    gap: 20px;
-  }
-  .culture__title {
-    font-size: 20px;
-    line-height: 19px;
-  }
-  .culture__play-btn {
-    width: 80px;
-    height: 80px;
-    margin: 10px 0;
-    border: 3px solid #ffffff;
-  }
-  .culture__play-icon {
-    font-size: 20px;
-    margin-left: 6px;
-  }
-  .culture__text {
-    font-size: 18px;
-    line-height: 19px;
-  }
-}
 @media (max-width: 768px) {
   .footer {
     height: auto;
