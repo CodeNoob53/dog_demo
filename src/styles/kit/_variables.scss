@@ -54,7 +54,6 @@ $border-radius-sm: 16px;
 $border-radius-md: 18px;
 $border-radius-lg: 69.86px;
 
-// Breakpoints для медіазапитів (для майбутнього використання)
-$breakpoint-mobile: 768px;
-$breakpoint-tablet: 1024px;
-$breakpoint-desktop: 1200px;
+// Breakpoints для медіазапитів (тільки мобільні та планшети)
+$breakpoint-mobile: 480px;   // Мобільні пристрої
+$breakpoint-tablet: 768px;   // Планшети (точка бургер-меню)

@@ -1,0 +1,268 @@
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+
+// Мобільні стилі для хедера
+@media (max-width: var.$breakpoint-tablet) {
+  .header {
+    height: 60px;
+    
+    &__container {
+      padding: 0 20px;
+    }
+    
+    &__logo {
+      position: static;
+      transform: none;
+      
+      &-text {
+        font-size: var.$font-size-md;
+      }
+    }
+    
+    &__nav {
+      position: static;
+      transform: none;
+    }
+  }
+  
+  // Стилі для бургер-меню
+  .nav {
+    &__toggle {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 35px;
+      height: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 5px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      // Стилі для іконки бургера
+      &-icon {
+        position: relative;
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var.$color-white;
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin: 0 auto;
+        
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: var.$color-white;
+          border-radius: 2px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        &::before {
+          top: -8px;
+          transform-origin: center;
+        }
+        
+        &::after {
+          bottom: -8px;
+          transform-origin: center;
+        }
+      }
+      
+      // Стилі для активного стану (хрестик)
+      &--active {
+        .nav__toggle-icon {
+          background-color: transparent;
+          
+          &::before {
+            top: 0;
+            transform: rotate(45deg);
+          }
+          
+          &::after {
+            bottom: 0;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    
+    &__list {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: calc(100vh - 60px);
+      background: linear-gradient(135deg, 
+        rgba(90, 69, 49, 0.97) 0%, 
+        rgba(183, 120, 68, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      
+      // Ховаємо за замовчуванням
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-100%);
+      
+      // Flex властивості
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      
+      // Анімація
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      // Padding і gap
+      padding: 80px 20px 40px;
+      gap: 40px;
+      
+      // Z-index
+      z-index: 1000;
+      
+      // Скидання list стилів
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+      
+      // Активний стан меню
+      &--active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    &__item {
+      position: static;
+      width: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: none;
+      
+      // Анімація появи елементів меню
+      .nav__list--active & {
+        animation: slideInUp 0.5s ease forwards;
+        
+        &:nth-child(1) { animation-delay: 0.1s; }
+        &:nth-child(2) { animation-delay: 0.2s; }
+        &:nth-child(3) { animation-delay: 0.3s; }
+        &:nth-child(4) { animation-delay: 0.4s; }
+      }
+    }
+    
+    &__link {
+      font-size: var.$font-size-lg;
+      font-weight: 500;
+      padding: 15px 30px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      display: block;
+      text-align: center;
+      min-width: 180px;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      
+      // Видаляємо підкреслення від десктопної версії
+      &::before,
+      &::after {
+        display: none !important;
+      }
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      &--active {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+        
+        &::before {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+// Додаткові стилі для екранів 480px і менше
+@media (max-width: var.$breakpoint-mobile) {
+  .header {
+    height: 50px;
+    
+    &__container {
+      padding: 0 15px;
+    }
+    
+    &__logo-text {
+      font-size: var.$font-size-sm;
+    }
+  }
+  
+  .nav {
+    &__toggle {
+      right: 15px;
+      width: 30px;
+      height: 30px;
+      padding: 3px;
+      
+      &-icon {
+        width: 20px;
+        height: 2px;
+        
+        &::before,
+        &::after {
+          height: 2px;
+        }
+        
+        &::before {
+          top: -6px;
+        }
+        
+        &::after {
+          bottom: -6px;
+        }
+      }
+    }
+    
+    &__list {
+      top: 50px;
+      height: calc(100vh - 50px);
+      padding: 60px 15px 30px;
+      gap: 30px;
+    }
+    
+    &__link {
+      font-size: var.$font-size-md;
+      padding: 12px 25px;
+      min-width: 160px;
+    }
+  }
+}
+
+// Анімація для елементів меню
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

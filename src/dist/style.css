@@ -467,4 +467,8 @@ a {
   flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.nav__toggle {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

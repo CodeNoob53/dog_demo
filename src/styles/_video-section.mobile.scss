@@ -1,0 +1,77 @@
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+
+// Мобільні стилі для секції culture (відео)
+@media (max-width: var.$breakpoint-tablet) {
+  .culture {
+    height: 400px;
+    
+    &__container {
+      padding: 0 20px;
+    }
+    
+    &__content {
+      max-width: 100%;
+      gap: 30px;
+    }
+    
+    &__title {
+      font-size: var.$font-size-xl;
+      line-height: var.$line-height-relaxed;
+      max-width: 100%;
+    }
+    
+    &__play-btn {
+      width: 100px;
+      height: 100px;
+      margin: 15px 0;
+    }
+    
+    &__play-icon {
+      font-size: 24px;
+    }
+    
+    &__text {
+      font-size: var.$font-size-lg;
+      line-height: var.$line-height-relaxed;
+      max-width: 100%;
+    }
+  }
+}
+
+// Стилі для екранів 480px і менше
+@media (max-width: var.$breakpoint-mobile) {
+  .culture {
+    height: 300px;
+    
+    &__container {
+      padding: 0 15px;
+    }
+    
+    &__content {
+      gap: 20px;
+    }
+    
+    &__title {
+      font-size: var.$font-size-lg;
+      line-height: var.$line-height-normal;
+    }
+    
+    &__play-btn {
+      width: 80px;
+      height: 80px;
+      margin: 10px 0;
+      border: 3px solid var.$color-white;
+    }
+    
+    &__play-icon {
+      font-size: 20px;
+      margin-left: 6px;
+    }
+    
+    &__text {
+      font-size: var.$font-size-md;
+      line-height: var.$line-height-normal;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 // Імпорти в правильному порядку через @use
 @use 'kit/variables' as var;
 @use 'kit/mixins' as mix;
-// Імпорт компонентів
+
+// Імпорт компонентів (десктопна версія)
 @use 'header';
 @use 'menu';
 @use 'text-section';
@@ -55,3 +56,7 @@ a {
   margin: 0 auto;
 }
 
+// Стилі для бургер-меню (приховані на десктопі)
+.nav__toggle {
+  display: none;
+}

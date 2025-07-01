@@ -1,0 +1,141 @@
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+
+// Мобільні стилі для hero секції та контенту
+@media (max-width: var.$breakpoint-tablet) {
+  .hero {
+    height: 400px;
+    
+    &__container {
+      padding: 0 20px;
+    }
+    
+    &__logo {
+      width: 150px;
+      height: 135px;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    &__title {
+      width: 100%;
+      top: 180px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: var.$font-size-3xl;
+      line-height: var.$line-height-hero;
+    }
+    
+    &__subtitle {
+      width: 90%;
+      top: 320px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: var.$font-size-lg;
+      line-height: var.$line-height-relaxed;
+    }
+  }
+  
+  .content {
+    padding: 40px 0 60px;
+    
+    &__container {
+      padding: 0 20px;
+    }
+    
+    &__header {
+      margin-bottom: 40px;
+    }
+    
+    &__title {
+      font-size: var.$font-size-2xl;
+      line-height: var.$line-height-display;
+      margin-bottom: 30px;
+    }
+    
+    &__subtitle {
+      font-size: var.$font-size-lg;
+      line-height: var.$line-height-relaxed;
+      max-width: 100%;
+    }
+    
+    &__body {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+      max-width: 100%;
+    }
+    
+    &__text {
+      font-size: var.$font-size-sm;
+      line-height: var.$line-height-relaxed;
+    }
+  }
+}
+
+// Стилі для екранів 480px і менше
+@media (max-width: var.$breakpoint-mobile) {
+  .hero {
+    height: 300px;
+    
+    &__container {
+      padding: 0 15px;
+    }
+    
+    &__logo {
+      width: 120px;
+      height: 108px;
+      top: 15px;
+    }
+    
+    &__title {
+      top: 140px;
+      font-size: var.$font-size-xl;
+      line-height: var.$line-height-loose;
+      width: 95%;
+    }
+    
+    &__subtitle {
+      top: 240px;
+      font-size: var.$font-size-md;
+      line-height: var.$line-height-normal;
+      width: 95%;
+    }
+  }
+  
+  .content {
+    padding: 30px 0 40px;
+    
+    &__container {
+      padding: 0 15px;
+    }
+    
+    &__header {
+      margin-bottom: 30px;
+    }
+    
+    &__title {
+      font-size: var.$font-size-xl;
+      line-height: var.$line-height-loose;
+      margin-bottom: 20px;
+    }
+    
+    &__subtitle {
+      font-size: var.$font-size-md;
+      line-height: var.$line-height-normal;
+    }
+    
+    &__body {
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    &__text {
+      font-size: 14px;
+      line-height: var.$line-height-normal;
+    }
+  }
+}

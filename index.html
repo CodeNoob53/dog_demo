@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PROJECT - Головна сторінка</title>
     <link rel="stylesheet" href="src/dist/style.css">
+    <link rel="stylesheet" href="src/dist/mobile.css">
 </head>
 <body>
     <div class="page">
@@ -16,7 +17,18 @@
                 </div>
                 
                 <nav class="header__nav nav">
-                    <ul class="nav__list">
+                    <!-- Кнопка бургер-меню (видима тільки на мобільних) -->
+                    <button class="nav__toggle" 
+                            aria-label="Відкрити головне меню"
+                            aria-expanded="false"
+                            aria-controls="nav-menu">
+                        <span class="nav__toggle-icon"></span>
+                    </button>
+                    
+                    <ul class="nav__list" 
+                        id="nav-menu"
+                        role="navigation"
+                        aria-hidden="true">
                         <li class="nav__item">
                             <a href="#projects" class="nav__link nav__link--active">PROJECTS</a>
                         </li>
@@ -133,5 +145,8 @@
             </div>
         </footer>
     </div>
+
+    <!-- Підключення JavaScript -->
+    <script src="src/js/burger-menu.js"></script>
 </body>
 </html>
