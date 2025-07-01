@@ -1,0 +1,110 @@
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+
+// Основний контейнер main
+.main {
+  flex: 1;
+}
+
+// Hero секція
+.hero {
+  height: var.$hero-height;
+  background-image: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/dog-1.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  
+  &__container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    max-width: var.$container-max-width;
+    margin: 0 auto;
+  }
+  
+  &__content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  &__logo {
+    position: absolute;
+    width: 245px;
+    height: 221px;
+    top: 32px;
+    left: 137px;
+    object-fit: cover;
+  }
+  
+  &__title {
+    position: absolute;
+    width: 415px;
+    top: 225px;
+    left: 162px;
+    @include mix.heading(var.$font-size-4xl, var.$color-brown-dark, var.$line-height-large);
+    text-align: right;
+  }
+  
+  &__subtitle {
+    position: absolute;
+    width: 415px;
+    top: 508px;
+    left: 162px;
+    @include mix.text-base(var.$font-size-xl, var.$color-gray-dark);
+    line-height: var.$line-height-loose;
+  }
+}
+
+// Контентна секція
+.content {
+  background-color: var.$color-white;
+  padding: 72px 0 100px;
+  
+  &__container {
+    @include mix.container;
+  }
+  
+  &__header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  &__title {
+    @include mix.heading(var.$font-size-3xl, var.$color-gray-dark, var.$line-height-hero);
+    margin-bottom: 48px;
+  }
+  
+  &__subtitle {
+    @include mix.text-base(var.$font-size-xl, var.$color-gray-medium, var.$font-secondary);
+    line-height: var.$line-height-loose;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 83px;
+    margin-bottom: 80px;
+    max-width: 1074px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__text {
+    @include mix.text-base(var.$font-size-sm, var.$color-gray-medium);
+    line-height: var.$line-height-relaxed;
+  }
+  
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+}

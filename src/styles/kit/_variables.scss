@@ -1,0 +1,60 @@
+// Кольори
+$color-white: #ffffff;
+$color-black: #000000;
+$color-brown-dark: #5a4531;
+$color-brown-light: #b77844;
+$color-gray-dark: #464547;
+$color-gray-medium: #666666;
+$color-gray-light: #f5f2ee;
+$color-white-transparent: #ffffffb2;
+$color-focus: #4a90e2;
+
+// Шрифти
+$font-primary: "Source Sans Pro", Helvetica, sans-serif;
+$font-display: "Nerko One", Helvetica, sans-serif;
+$font-secondary: "Poppins", Helvetica, sans-serif;
+$font-accent: "Oswald", Helvetica, sans-serif;
+
+// Розміри шрифтів
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-2xl: 62px;
+$font-size-3xl: 70px;
+$font-size-4xl: 96px;
+
+// Висота рядків
+$line-height-tight: 16px;
+$line-height-normal: 19px;
+$line-height-relaxed: 22px;
+$line-height-loose: 32px;
+$line-height-display: 50px;
+$line-height-hero: 64px;
+$line-height-large: 72px;
+
+// Відступи буквами
+$letter-spacing-wide: 2.80px;
+$letter-spacing-normal: 2.00px;
+$letter-spacing-tight: 1.40px;
+$letter-spacing-extra: 3.60px;
+
+// Контейнери
+$container-max-width: 1200px;
+$container-padding: 20px;
+
+// Висоти секцій
+$header-height: 78px;
+$hero-height: 690px;
+$footer-height: 199px;
+
+// Радіуси
+$border-radius-sm: 16px;
+$border-radius-md: 18px;
+$border-radius-lg: 69.86px;
+
+// Breakpoints для медіазапитів (для майбутнього використання)
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1200px;

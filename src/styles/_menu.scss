@@ -1,0 +1,32 @@
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+
+// Додаткові стилі для меню (основні стилі в _header.scss)
+
+// Анімації для hover ефектів
+.nav__link {
+  &::after {
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  
+  &:hover::after,
+  &--active::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  
+  // Додатковий hover ефект
+  &:hover {
+    color: lighten(var.$color-white, 10%);
+  }
+}
+
+// Медіа запити для меню (для майбутнього використання)
+// @media (max-width: var.$breakpoint-tablet) {
+//   .nav__list {
+//     flex-direction: column;
+//     gap: 20px;
+//   }
+// }

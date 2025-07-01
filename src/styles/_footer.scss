@@ -1,0 +1,83 @@
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+
+.footer {
+  background-color: var.$color-brown-dark;
+  height: var.$footer-height;
+  margin-top: auto;
+  
+  &__container {
+    @include mix.container;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 20px 40px;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    grid-template-areas: 
+      "logo . ."
+      "logo address copyright"
+      "logo . .";
+  }
+  
+  &__logo {
+    grid-area: logo;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    
+    &-img {
+      width: 133px;
+      height: 121px;
+      object-fit: cover;
+    }
+    
+    &-text {
+      @include mix.text-base(var.$font-size-md, var.$color-white);
+      letter-spacing: var.$letter-spacing-extra;
+      line-height: var.$line-height-tight;
+      font-weight: 400;
+    }
+  }
+  
+  &__address {
+    grid-area: address;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    &-line {
+      @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
+      line-height: var.$line-height-normal;
+    }
+  }
+  
+  &__email {
+    @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
+    line-height: var.$line-height-normal;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: var.$color-white;
+    }
+  }
+  
+  &__copyright {
+    grid-area: copyright;
+    justify-self: end;
+    
+    &-text {
+      @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
+      line-height: var.$line-height-normal;
+      white-space: nowrap;
+    }
+  }
+  
+  &__brand {
+    color: var.$color-white-transparent;
+  }
+}

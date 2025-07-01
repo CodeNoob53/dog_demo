@@ -1,0 +1,56 @@
+// Імпорти в правильному порядку через @use
+@use 'kit/variables' as var;
+@use 'kit/mixins' as mix;
+// Імпорт компонентів
+@use 'header';
+@use 'menu';
+@use 'text-section';
+@use 'video-section';
+@use 'footer';
+
+// Базові стилі та скидання
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Nerko+One:400|Poppins:400|Oswald:400");
+
+// Глобальні стилі
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: var.$font-primary;
+}
+
+// Фокус стилі для доступності
+button:focus-visible {
+  outline: 2px solid var.$color-focus !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Загальні компоненти
+.btn {
+  @include mix.button-base;
+  
+  &--primary {
+    @include mix.button-primary;
+  }
+}
+
+// Основний контейнер сторінки
+.page {
+  background-color: var.$color-white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: var.$container-max-width;
+  margin: 0 auto;
+}
+
