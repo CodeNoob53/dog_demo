@@ -8,55 +8,54 @@
   background-position: center;
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &__container {
-    width: 100%;
+    @include mix.container;
     height: 100%;
-    max-width: var.$container-max-width;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
   }
   
   &__content {
-    position: absolute;
-    width: 520px;
-    height: 555px;
-    top: 52px;
-    left: 345px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+    gap: 40px;
   }
   
   &__title {
-    position: absolute;
-    width: 505px;
-    top: 0;
-    left: 0;
     @include mix.heading(var.$font-size-2xl, var.$color-white, var.$line-height-display);
     text-align: center;
-  }
-  
-  &__text {
-    position: absolute;
-    width: 516px;
-    top: 491px;
-    left: 0;
-    @include mix.text-base(var.$font-size-xl, var.$color-white);
-    line-height: var.$line-height-loose;
-    text-align: center;
+    margin: 0;
+    max-width: 505px;
   }
   
   &__play-btn {
-    position: absolute;
-    width: 140px;
-    height: 139px;
-    top: 267px;
-    left: 521px;
     @include mix.play-button;
-    border-radius: 50%;
+    margin: 20px 0;
+    flex-shrink: 0;
   }
   
   &__play-icon {
     font-size: 32px;
     color: var.$color-brown-light;
     margin-left: 8px; // Оптичне центрування трикутника
+  }
+  
+  &__text {
+    @include mix.text-base(var.$font-size-xl, var.$color-white);
+    line-height: var.$line-height-loose;
+    text-align: center;
+    margin: 0;
+    max-width: 516px;
   }
 }
