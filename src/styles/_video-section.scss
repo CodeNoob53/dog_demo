@@ -40,13 +40,55 @@
   }
   
   &__play-btn {
-    @include mix.play-button;
+    position: relative;
+    width: 138px;
+    height: 138px;
+    background: var.$color-white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
     margin: 20px 0;
     flex-shrink: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 30px solid var.$color-brown-light;
+      transition: border-left-color 0.3s ease-in-out;
+      // Центруємо іконку поверх span, якщо треба
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    // Приховуємо span з символом, якщо використовуємо ::before
+    .culture__play-icon {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: var.$color-brown-light;
+      transform: scale(1.01);
+
+      &::before {
+        border-left-color: var.$color-white;
+      }
+    }
   }
   
   &__play-icon {
-    font-size: 32px;
+
     color: var.$color-brown-light;
     margin-left: 8px; // Оптичне центрування трикутника
   }
