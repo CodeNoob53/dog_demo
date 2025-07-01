@@ -1,13 +1,11 @@
-// Кольори
+// Кольори (тільки ті, що використовуються)
 $color-white: #ffffff;
-$color-black: #000000;
 $color-brown-dark: #5a4531;
 $color-brown-light: #b77844;
 $color-gray-dark: #464547;
 $color-gray-medium: #666666;
-$color-gray-light: #f5f2ee;
 $color-white-transparent: #ffffffb2;
-$color-focus: #4a90e2;
+$color-focus: #007aff; // або будь-який інший колір для фокусу
 
 // Шрифти
 $font-primary: "Source Sans Pro", Helvetica, sans-serif;
@@ -40,20 +38,14 @@ $letter-spacing-normal: 2.00px;
 $letter-spacing-tight: 1.40px;
 $letter-spacing-extra: 3.60px;
 
-// Контейнери
+// Контейнер
 $container-max-width: 1200px;
-$container-padding: 20px;
 
 // Висоти секцій
 $header-height: 78px;
 $hero-height: 690px;
 $footer-height: 199px;
 
-// Радіуси
-$border-radius-sm: 16px;
-$border-radius-md: 18px;
-$border-radius-lg: 69.86px;
-
-// Breakpoints для медіазапитів (тільки мобільні та планшети)
-$breakpoint-mobile: 480px;   // Мобільні пристрої
-$breakpoint-tablet: 768px;   // Планшети (точка бургер-меню)
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;

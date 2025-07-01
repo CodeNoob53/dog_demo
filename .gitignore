@@ -1,34 +1,36 @@
-# Node.js
+﻿# Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
-# VS Code
+# Build outputs
+src/dist/*.css
+src/dist/*.css.map
+
+# IDE files
 .vscode/
-.history/
+.idea/
+*.swp
+*.swo
 
-# OS
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Build output
-src/dist/
-dist/
-build/
-
-# Sass cache
-.sass-cache/
-*.css.map
-
-# Env files
-.env
-.env.local
-.env.*.local
-
 # Logs
-logs/
+logs
 *.log
 
-# Other
-.idea/
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Test results
+test-results/
+junit.xml

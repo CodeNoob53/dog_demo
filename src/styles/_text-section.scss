@@ -19,11 +19,18 @@
 // Hero секція
 .hero {
   height: var.$hero-height;
-  background-image: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/dog-1.png);
+  background-image: 
+    linear-gradient(
+      0deg, 
+      rgba(53, 37, 22, 0.685) -5.615%, 
+      rgba(90, 69, 49, 0) 52.259%
+    ),
+    url(https://c.animaapp.com/mck8g5i3vEp5jz/img/dog-1.png);
   background-size: cover;
   background-position: center;
   position: relative;
   width: 100%;
+  background-blend-mode: multiply;
   
   &__container {
     width: 100%;
@@ -46,6 +53,11 @@
     top: 32px;
     left: 137px;
     object-fit: cover;
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+    will-change: transform;
+    animation: logoFlip 4s ease-in-out infinite;
   }
   
   &__title {
@@ -53,7 +65,7 @@
     width: 415px;
     top: 225px;
     left: 162px;
-    @include mix.heading(var.$font-size-4xl, var.$color-brown-dark, var.$line-height-large);
+    @include mix.heading(var.$font-size-4xl, var.$color-brown-dark);
     text-align: right;
   }
   
@@ -82,12 +94,14 @@
   }
   
   &__title {
-    @include mix.heading(var.$font-size-3xl, var.$color-gray-dark, var.$line-height-hero);
+    @include mix.heading(var.$font-size-3xl, var.$color-gray-dark);
+    line-height: var.$line-height-hero;
     margin-bottom: 48px;
   }
   
   &__subtitle {
-    @include mix.text-base(var.$font-size-xl, var.$color-gray-medium, var.$font-secondary);
+    @include mix.text-base(var.$font-size-xl, var.$color-gray-medium);
+    font-family: var.$font-secondary;
     line-height: var.$line-height-loose;
     max-width: 500px;
     margin: 0 auto;

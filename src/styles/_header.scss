@@ -1,79 +1,52 @@
 @use 'kit/variables' as var;
 @use 'kit/mixins' as mix;
 
+// 3D-анімація логотипу
+@keyframes logoFlip {
+  0%   { transform: rotateY(0deg) scale(1); }
+  30%  { transform: rotateY(180deg) scale(1.3); }
+  50%  { transform: rotateY(180deg) scale(1.3); }
+  80%  { transform: rotateY(0deg) scale(1); }
+  100% { transform: rotateY(0deg) scale(1); }
+}
+
 .header {
-  background-image: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/rectangle-13.svg);
-  background-size: cover;
-  background-position: center;
+  background: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/rectangle-13.svg) center/cover;
   height: var.$header-height;
   width: 100%;
   position: relative;
   
   &__container {
-    width: 100%;
     height: 100%;
-    max-width: var.$container-max-width;
-    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 var.$container-padding;
-    position: relative;
+    justify-content: space-around;
+
   }
   
   &__logo {
-    position: absolute;
-    left: 152px;
-    top: 50%;
-    transform: translateY(-50%);
     
     &-text {
       @include mix.text-base(var.$font-size-lg, var.$color-white);
       letter-spacing: var.$letter-spacing-normal;
       line-height: var.$line-height-tight;
-      font-weight: 400;
     }
   }
   
   &__nav {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+
   }
 }
 
-// Навігаційне меню
+// Навігація
 .nav {
   &__list {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: relative;
-    width: 403px;
-    height: 22px;
-  }
-  
-  &__item {
-    position: absolute;
-    top: 0;
-    
-    &:nth-child(1) { // PROJECTS
-      left: 0;
-    }
-    
-    &:nth-child(2) { // ABOUT US
-      left: 113px;
-    }
-    
-    &:nth-child(3) { // STORIES
-      left: 223px;
-    }
-    
-    &:nth-child(4) { // CONTACT
-      left: 322px;
-    }
+    gap: 40px;
   }
   
   &__link {
