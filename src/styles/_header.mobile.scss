@@ -101,12 +101,11 @@
     
     &__list {
       position: fixed;
-      top: 60px;
+      top: 60px; // Меню починається відразу під хедером
       left: 0;
       right: 0;
-      bottom: 0;
       width: 100vw;
-      height: calc(100vh - 60px);
+      height: 0; // Початкова висота 0
       background: linear-gradient(135deg, 
         rgba(90, 69, 49, 0.97) 0%, 
         rgba(183, 120, 68, 0.95) 100%);
@@ -116,7 +115,7 @@
       // Ховаємо за замовчуванням
       visibility: hidden;
       opacity: 0;
-      transform: translateY(-100%);
+      overflow: hidden; // Ховаємо контент коли висота 0
       
       // Flex властивості
       display: flex;
@@ -124,12 +123,12 @@
       justify-content: flex-start;
       align-items: center;
       
-      // Анімація
+      // Анімація висоти та прозорості
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       
-      // Padding і gap
-      padding: 80px 20px 40px;
-      gap: 40px;
+      // Padding і gap (будуть видимі тільки при відкритому меню)
+      padding: 0 20px;
+      gap: 0;
       
       // Z-index
       z-index: 1000;
@@ -140,11 +139,13 @@
       padding-left: 0;
       padding-right: 0;
       
-      // Активний стан меню
+      // Активний стан меню - розкриваємо з-під хедера
       &--active {
         visibility: visible;
         opacity: 1;
-        transform: translateY(0);
+        height: calc(100vh - 60px); // Повна висота мінус хедер
+        padding: 80px 20px 40px; // Відновлюємо padding
+        gap: 40px; // Відновлюємо gap
       }
     }
     
@@ -152,12 +153,13 @@
       position: static;
       width: auto;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px); // Менший відступ для плавнішої анімації
       animation: none;
+      transition: all 0.3s ease; // Додаємо базову анімацію
       
       // Анімація появи елементів меню
       .nav__list--active & {
-        animation: slideInUp 0.5s ease forwards;
+        animation: slideInFromTop 0.5s ease forwards;
         
         &:nth-child(1) { animation-delay: 0.1s; }
         &:nth-child(2) { animation-delay: 0.2s; }
@@ -245,10 +247,13 @@
     }
     
     &__list {
-      top: 50px;
-      height: calc(100vh - 50px);
-      padding: 60px 15px 30px;
-      gap: 30px;
+      top: 50px; // Адаптуємо під менший хедер
+      
+      &--active {
+        height: calc(100vh - 50px); // Адаптуємо висоту
+        padding: 60px 15px 30px; // Менші відступи
+        gap: 30px; // Менший gap
+      }
     }
     
     &__link {
@@ -259,10 +264,40 @@
   }
 }
 
-// Анімація для елементів меню
-@keyframes slideInUp {
+// Оновлена анімація для елементів меню - з'являються зверху
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// Додаткова анімація для плавного розкриття меню
+@keyframes expandFromTop {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: calc(100vh - 60px);
+    opacity: 1;
+  }
+}
+
+// Стилі для плавного розкриття на мобільних
+@media (max-width: var.$breakpoint-mobile) {
+  @keyframes expandFromTop {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: calc(100vh - 50px);
+      opacity: 1;
+    }
   }
 }

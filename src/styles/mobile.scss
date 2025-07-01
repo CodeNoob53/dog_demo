@@ -17,6 +17,30 @@ body.menu-open {
   height: 100% !important;
   top: 0 !important;
   left: 0 !important;
+  
+  // Додаткова фіксація для iOS Safari
+  -webkit-overflow-scrolling: touch;
+  
+  // Зберігаємо позицію скролу
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  // Показуємо оверлей коли меню відкрите
+  .nav__list--active ~ &::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 // Приховати кнопку бургера на десктопі за замовчуванням
@@ -24,7 +48,7 @@ body.menu-open {
   display: none !important;
 }
 
-// Приховати мобільне меню на десктопі
+// Стилі для десктопної версії меню
 .nav__list {
   @media (min-width: #{var.$breakpoint-tablet + 1px}) {
     display: flex !important;
@@ -39,6 +63,12 @@ body.menu-open {
     backdrop-filter: none !important;
     height: auto !important;
     width: auto !important;
+    overflow: visible !important;
+    
+    // Скидаємо мобільні стилі
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
   }
 }
 
@@ -46,10 +76,12 @@ body.menu-open {
 @media (max-width: var.$breakpoint-tablet) {
   .page {
     max-width: 100%;
+    overflow-x: hidden; // Запобігаємо горизонтальному скролу
   }
   
   body {
     font-size: 14px;
+    overflow-x: hidden; // Додаткова фіксація
   }
   
   // Показати кнопку бургера на планшетах і мобільних
@@ -62,13 +94,62 @@ body.menu-open {
     // За замовчуванням ховаємо
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-100%);
+    height: 0;
+    overflow: hidden;
     
     // Показуємо тільки коли активне
     &--active {
       visibility: visible !important;
       opacity: 1 !important;
-      transform: translateY(0) !important;
+      height: calc(100vh - 60px) !important;
+      overflow-y: auto !important; // Дозволяємо вертикальний скрол якщо потрібно
+      
+      // Кастомний скрол для WebKit браузерів
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+  
+  // Додаткові стилі для кращої взаємодії
+  .nav__item {
+    width: 100%;
+    max-width: 300px; // Обмежуємо максимальну ширину
+  }
+  
+  .nav__link {
+    // Додаткові стилі для кращого дотику
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    
+    // Покращений hover для тач-пристроїв
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+    }
+    
+    // Стилі для активного дотику
+    &:active {
+      transform: translateY(0);
+      transition-duration: 0.1s;
     }
   }
 }
@@ -81,5 +162,66 @@ body.menu-open {
   
   .container {
     padding: 0 15px;
+  }
+  
+  .nav__list--active {
+    height: calc(100vh - 50px) !important; // Враховуємо меншу висоту хедера
+  }
+  
+  .nav__item {
+    max-width: 280px; // Трохи менша ширина для маленьких екранів
+  }
+}
+
+// Додаткові утиліти для анімацій
+.nav-animating {
+  pointer-events: none; // Блокуємо взаємодію під час анімації
+}
+
+// Стилі для фокусу (покращена доступність)
+@media (max-width: var.$breakpoint-tablet) {
+  .nav__link:focus {
+    outline: 2px solid var.$color-white;
+    outline-offset: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .nav__toggle:focus {
+    outline: 2px solid var.$color-white;
+    outline-offset: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Стилі для покращення продуктивності
+.nav__list {
+  // Оптимізація для GPU
+  transform: translateZ(0);
+  will-change: height, opacity, visibility;
+  
+  &--active {
+    // Примусова активація GPU при відкритому меню
+    transform: translateZ(0) translateY(0);
+  }
+}
+
+// Додаткові стилі для старіших браузерів
+@supports not (backdrop-filter: blur(10px)) {
+  .nav__list {
+    background: rgba(90, 69, 49, 0.95) !important;
+  }
+}
+
+// Стилі для високих екранів (ландшафт на мобільних)
+@media (max-width: var.$breakpoint-tablet) and (max-height: 500px) and (orientation: landscape) {
+  .nav__list--active {
+    padding: 20px;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .nav__link {
+    padding: 10px 20px;
+    font-size: var.$font-size-sm;
   }
 }
