@@ -238,6 +238,8 @@
 @media (max-width: 768px) {
   .hero {
     height: 400px;
+    background-image: none;
+    background-color: #D7CDC5;
   }
   .hero__container {
     padding: 0 20px;

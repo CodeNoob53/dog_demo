@@ -20,17 +20,20 @@
 .hero {
   height: var.$hero-height;
   background-image: 
-    linear-gradient(
+    url(/src/assets/dog_paws_desc.png),    // Лапки десктоп
+    linear-gradient(                         // Градієнт
       0deg, 
       rgba(53, 37, 22, 0.685) -5.615%, 
       rgba(90, 69, 49, 0) 52.259%
     ),
-    url(/src/assets/dog_hero.jpg);
-  background-size: cover;
-  background-position: center;
+    url(/src/assets/dog_hero.jpg);          // Основне фото
+  
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
   position: relative;
   width: 100%;
-  background-blend-mode: multiply;
+  background-blend-mode: normal, multiply, normal;
   
   &__container {
     width: 100%;
@@ -53,10 +56,6 @@
     top: 32px;
     left: 137px;
     object-fit: cover;
-    transform-origin: center center;
-    transform-style: preserve-3d;
-    backface-visibility: visible;
-    will-change: transform;
     animation: logoFlip 4s ease-in-out infinite;
   }
   

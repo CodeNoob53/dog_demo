@@ -75,19 +75,6 @@
   transform: scaleX(1);
 }
 
-.nav__link::after {
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: scaleX(0);
-}
-.nav__link:hover::after, .nav__link--active::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-.nav__link:hover {
-  color: white;
-}
-
 @keyframes logoFlip {
   0% {
     transform: rotateY(0deg) scale(1);
@@ -111,12 +98,13 @@
 
 .hero {
   height: 690px;
-  background-image: linear-gradient(0deg, rgba(53, 37, 22, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(/src/assets/dog_hero.jpg);
-  background-size: cover;
-  background-position: center;
+  background-image: url(/src/assets/dog_paws_desc.png), linear-gradient(0deg, rgba(53, 37, 22, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(/src/assets/dog_hero.jpg);
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
   position: relative;
   width: 100%;
-  background-blend-mode: multiply;
+  background-blend-mode: normal, multiply, normal;
 }
 .hero__container {
   width: 100%;
@@ -138,10 +126,6 @@
   left: 137px;
   -o-object-fit: cover;
      object-fit: cover;
-  transform-origin: center center;
-  transform-style: preserve-3d;
-  backface-visibility: visible;
-  will-change: transform;
   animation: logoFlip 4s ease-in-out infinite;
 }
 .hero__title {

@@ -5,6 +5,8 @@
 @media (max-width: var.$breakpoint-tablet) {
   .hero {
     height: 400px;
+    background-image: none;
+    background-color: #D7CDC5;
     
     &__container {
       padding: 0 20px;
