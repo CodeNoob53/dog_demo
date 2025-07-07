@@ -34,18 +34,16 @@
       position: relative;
       width: 145px; // За макетом
       height: 145px;
-      top: 89px;
+      top: 40px;
       left: 0px;
       object-fit: cover;
-
-
     }
     
     &__title {
       position: absolute;
       padding: 80px;
       width: 100%;
-      top: 241px;
+      top: 206px;
       left: 0;
       transform: none;
       text-align: center;
@@ -58,7 +56,7 @@
     &__subtitle {
       position: absolute;
       width: 310px; // За макетом
-      top: 552px;
+      top: 556px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -133,24 +131,7 @@
 
 // Стилі для екранів 480px і менше
 @media (max-width: var.$breakpoint-mobile) {
-  .hero {
-    height: 600px;
-    position: relative;
-    
-    &__title {
-      top: 200px;
-      font-size: 60px;
-      line-height: 55px;
-      padding: 0 15px;
-    }
-    
-    &__subtitle {
-      top: 450px;
-      width: 260px;
-      font-size: var.$font-size-lg;
-      line-height: 28px;
-    }
-  }
+
   
   .content {
     padding: 60px 0 30px;

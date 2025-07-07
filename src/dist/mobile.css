@@ -205,7 +205,7 @@
     position: relative;
     width: 145px;
     height: 145px;
-    top: 89px;
+    top: 40px;
     left: 0px;
     -o-object-fit: cover;
        object-fit: cover;
@@ -214,7 +214,7 @@
     position: absolute;
     padding: 80px;
     width: 100%;
-    top: 241px;
+    top: 206px;
     left: 0;
     transform: none;
     text-align: center;
@@ -226,7 +226,7 @@
   .hero__subtitle {
     position: absolute;
     width: 310px;
-    top: 552px;
+    top: 556px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -286,22 +286,6 @@
   }
 }
 @media (max-width: 480px) {
-  .hero {
-    height: 600px;
-    position: relative;
-  }
-  .hero__title {
-    top: 200px;
-    font-size: 60px;
-    line-height: 55px;
-    padding: 0 15px;
-  }
-  .hero__subtitle {
-    top: 450px;
-    width: 260px;
-    font-size: 20px;
-    line-height: 28px;
-  }
   .content {
     padding: 60px 0 30px;
     min-height: 996px;
