@@ -238,8 +238,8 @@
     padding: 79px 0 40px;
   }
   .content__container {
-    padding: 0 24px;
     max-width: 480px;
+    padding: 0 0px;
   }
   .content__header {
     margin-bottom: 60px;
@@ -255,14 +255,14 @@
   .content__subtitle {
     font-size: 24px;
     line-height: 32px;
-    max-width: 453px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 3px;
   }
   .content__body {
     display: block;
-    margin-bottom: 40px;
-    max-width: 100%;
+    margin-bottom: 69px;
+    padding: 0px 27px;
   }
   .content__column {
     margin-bottom: 30px;
@@ -287,30 +287,26 @@
 }
 @media (max-width: 480px) {
   .content {
-    padding: 60px 0 30px;
+    padding: 79px 0 30px;
     min-height: 996px;
   }
-  .content__container {
-    padding: 0 20px;
-  }
   .content__header {
-    margin-bottom: 40px;
+    margin-bottom: 69px;
   }
   .content__title {
-    margin-bottom: 25px;
-    width: 100%;
+    margin-bottom: 39px;
+    font-size: 58px;
   }
   .content__subtitle {
-    font-size: 20px;
-    line-height: 28px;
-    max-width: 100%;
+    font-size: 22px;
+    width: 100%;
   }
   .content__text {
     width: 100% !important;
-    max-width: 100%;
+    font-size: 16px;
   }
   .content__column:first-child {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 }
 @media (max-width: 768px) {
@@ -322,12 +318,9 @@
   }
   .culture__container {
     padding: 0 20px;
-    max-width: 480px;
   }
   .culture__content {
     max-width: 100%;
-    gap: 40px;
-    padding: 103px 0 50px;
   }
   .culture__title {
     font-size: 53px;
@@ -382,20 +375,18 @@
 }
 @media (max-width: 480px) {
   .culture {
-    height: 550px;
+    height: 630px;
   }
   .culture__container {
     padding: 0 15px;
   }
   .culture__content {
-    padding: 80px 0 40px;
-    gap: 30px;
+    height: 100%;
   }
   .culture__title {
-    font-size: 42px;
-    line-height: 40px;
     width: 100%;
     padding: 0 15px;
+    margin-top: -25px;
   }
   .culture__play-btn {
     width: 80px;
@@ -409,8 +400,8 @@
   }
   .culture__text {
     font-size: 20px;
-    line-height: 28px;
-    max-width: 100%;
+    line-height: 32px;
+    max-width: 396px;
     padding: 0 30px;
   }
 }
