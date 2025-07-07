@@ -1,102 +1,128 @@
 @use 'kit/variables' as var;
 @use 'kit/mixins' as mix;
 
-@media (min-width: 481px) and (max-width: 768px) {
+// Мобільні стилі для hero секції та контенту
+@media (max-width: var.$breakpoint-tablet) {
   .hero {
-    min-height: 100vh;
-    padding: 3rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image:
-      url(/src/assets/dog_paws_tab.png),
-      linear-gradient(0deg, rgba(163, 126, 92, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%),
-      url(/src/assets/dog_hero.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: normal, multiply, normal;
+    height: 710px; // За макетом Figma
+    background-image: linear-gradient(0deg, rgba(167, 132, 100, 0.295) -5.615%, rgba(90, 69, 49, 0) 52.259%), none;
+    background-color: #f0eae6; // Світлий фон як в макеті
 
-    &__container {
+
+
+    // Декоративні лапки для мобільної версії
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 100%;
+      height: 100%;
+      background: url('../assets/dog_paws_mob.png') no-repeat center/cover;
+      pointer-events: none;
+      z-index: 2;
     }
-
+    
     &__content {
+      position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      justify-content: center;
     }
-
+    
     &__logo {
-      position: static;
-      width: 160px;
-      margin-bottom: 2rem;
-      animation: logoFlip 4s ease-in-out infinite;
-    }
+      position: relative;
+      width: 145px; // За макетом
+      height: 145px;
+      top: 89px;
+      left: 0px;
+      object-fit: cover;
 
+
+    }
+    
     &__title {
-      position: static;
-      @include mix.heading(var.$font-size-4xl, var.$color-brown-dark);
-      margin-bottom: 1rem;
+      position: absolute;
+      padding: 80px;
+      width: 100%;
+      top: 241px;
+      left: 0;
+      transform: none;
+      text-align: center;
+      font-size: 77px; // За макетом
+      line-height: 67px;
+      color: var.$color-brown-dark;
+      padding: 0 20px;
     }
-
+    
     &__subtitle {
-      position: static;
-      @include mix.text-base(var.$font-size-lg, var.$color-gray-dark);
-      max-width: 85%;
+      position: absolute;
+      width: 310px; // За макетом
+      top: 552px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: var.$font-size-xl;
       line-height: var.$line-height-loose;
+      color: var.$color-brown-dark; // Темний колір як в макеті
     }
   }
-
+  
   .content {
-    padding: 79px 0 40px;
-
+    padding: 79px 0 40px; // Відступи за макетом
+    
     &__container {
-      padding: 0 24px;
-      max-width: 640px;
+      padding: 0 24px; // Бокові відступи за макетом
+      max-width: 480px;
     }
-
+    
     &__header {
       margin-bottom: 60px;
     }
-
+    
     &__title {
-      font-size: 48px;
+      font-size: 58px; // За макетом
       line-height: 52px;
-      margin: 0 auto 30px;
-      max-width: 600px;
+      margin-bottom: 30px;
+      width: 434px; // За макетом
+      margin-left: auto;
+      margin-right: auto;
     }
-
+    
     &__subtitle {
-      font-size: var.$font-size-lg;
+      font-size: var.$font-size-xl;
       line-height: var.$line-height-loose;
-      max-width: 600px;
+      max-width: 453px; // За макетом
       margin: 0 auto;
       padding: 0 3px;
     }
-
+    
     &__body {
-      display: block;
+      display: block; // Змінюємо з grid на block
       margin-bottom: 40px;
       max-width: 100%;
     }
-
+    
     &__column {
       margin-bottom: 30px;
-
+      
       &:first-child {
-        margin-bottom: 50px;
+        margin-bottom: 50px; // Більший відступ між колонками
       }
     }
-
+    
     &__text {
       font-size: var.$font-size-sm;
       line-height: var.$line-height-relaxed;
-      width: 100%;
+      width: 445px; // За макетом для першого тексту
       max-width: 100%;
+      
+      // Другий текстовий блок
+      &:last-child {
+        width: 430px; // За макетом для другого тексту
+      }
     }
-
+    
     &__actions {
       display: flex;
       justify-content: center;
@@ -104,7 +130,6 @@
     }
   }
 }
-
 
 // Стилі для екранів 480px і менше
 @media (max-width: var.$breakpoint-mobile) {
