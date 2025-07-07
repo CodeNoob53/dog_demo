@@ -1,14 +1,14 @@
-// Імпорти в правильному порядку через @use
+// Імпорти в правильному порядку
 @use 'kit/variables' as var;
 @use 'kit/mixins' as mix;
 
-// Імпорт компонентів (десктопна версія)
+// Імпорт компонентів
 @use 'header';
 @use 'text-section';
 @use 'video-section';
 @use 'footer';
 
-// Базові стилі та скидання
+// Базові стилі
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Nerko+One:400|Poppins:400|Oswald:400");
 
@@ -18,12 +18,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; // Плавна прокрутка
+  scroll-padding-top: var.$header-height; // Відступ для якорів під хедером
+}
+
 html,
 body {
   margin: 0;
   height: 100%;
   font-family: var.$font-primary;
-  background-color: rgb(228, 228, 228);
+  background-color: #f4f4f4;
 }
 
 // Фокус стилі для доступності
@@ -34,9 +39,10 @@ button:focus-visible {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
-// Загальні компоненти
+// Компоненти
 .btn {
   @include mix.button-base;
   
@@ -53,9 +59,17 @@ a {
   flex-direction: column;
   max-width: var.$container-max-width;
   margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 // Стилі для бургер-меню (приховані на десктопі)
 .nav__toggle {
   display: none;
+}
+
+// Стилі для плавного блокування прокрутки при відкритому меню
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }

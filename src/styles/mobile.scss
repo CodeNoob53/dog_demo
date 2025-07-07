@@ -30,85 +30,21 @@ body.menu-open {
   .nav__toggle {
     display: block !important;
   }
-  
-  // Мобільне меню
-  .nav__list {
-    visibility: hidden;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    background: linear-gradient(135deg, 
-      rgba(var.$color-brown-dark, 0.97) 0%, 
-      rgba(var.$color-brown-light, 0.95) 100%);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
-    z-index: 1000;
-    
-    &--active {
-      visibility: visible;
-      opacity: 1;
-      height: calc(100vh - 60px);
-      padding: 80px 20px 40px;
-    }
-  }
-  
-  .nav__item {
-    width: 100%;
-    max-width: 300px;
-    opacity: 0;
-    animation: none;
-    
-    .nav__list--active & {
-      animation: fadeIn 0.5s ease forwards;
-      
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-          animation-delay: #{$i * 0.1}s;
-        }
-      }
-    }
-  }
-  
-  .nav__link {
-    display: block;
-    font-size: var.$font-size-lg;
-    padding: 15px 30px;
-    border-radius: 12px;
-    text-align: center;
-    min-width: 180px;
-    border: 2px solid transparent;
-    
-    &::before,
-    &::after {
-      display: none;
-    }
-    
-    &:hover,
-    &--active {
-      background-color: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-  }
 }
 
-// Мобільні пристрої
-@media (max-width: var.$breakpoint-mobile) {
-  body {
-    font-size: 14px;
-  }
-  
-  .nav__list--active {
-    height: calc(100vh - 50px);
-  }
-}
-
-// Анімація
+// Базові анімації
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
   from {
     opacity: 0;
     transform: translateY(-20px);

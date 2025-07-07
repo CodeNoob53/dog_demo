@@ -1,11 +1,12 @@
-// Кольори (тільки ті, що використовуються)
+// Кольори
 $color-white: #ffffff;
 $color-brown-dark: #5a4531;
 $color-brown-light: #b77844;
 $color-gray-dark: #464547;
 $color-gray-medium: #666666;
 $color-white-transparent: #ffffffb2;
-$color-focus: #007aff; // або будь-який інший колір для фокусу
+$color-focus: #007aff;
+$color-background: #f4f4f4;
 
 // Шрифти
 $font-primary: "Source Sans Pro", Helvetica, sans-serif;
@@ -38,14 +39,23 @@ $letter-spacing-normal: 2.00px;
 $letter-spacing-tight: 1.40px;
 $letter-spacing-extra: 3.60px;
 
-// Контейнер
+// Розміри контейнера та секцій
 $container-max-width: 1200px;
-
-// Висоти секцій
 $header-height: 78px;
 $hero-height: 690px;
 $footer-height: 199px;
 
-// Breakpoints
+// Breakpoints для адаптивності
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// Тривалість анімацій
+$transition-fast: 0.2s;
+$transition-normal: 0.3s;
+$transition-slow: 0.4s;
+
+// Z-index шари
+$z-header: 100;
+$z-menu: 1000;
+$z-menu-toggle: 1001;

@@ -57,6 +57,8 @@
   line-height: 16px;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
   white-space: nowrap;
   position: relative;
 }
@@ -98,7 +100,7 @@
 
 .hero {
   height: 690px;
-  background-image: url(/src/assets/dog_paws_desc.png), linear-gradient(0deg, rgba(53, 37, 22, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(/src/assets/dog_hero.jpg);
+  background-image: url(/src/assets/dog_paws_desc.png), linear-gradient(0deg, rgba(163, 126, 92, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(/src/assets/dog_hero.jpg);
   background-size: cover, cover, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -158,6 +160,12 @@
 .content__container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 480px) {
+  .content__container {
+    padding: 0 15px;
+  }
 }
 .content__header {
   text-align: center;
@@ -220,11 +228,17 @@
 .culture__container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+@media (max-width: 480px) {
+  .culture__container {
+    padding: 0 15px;
+  }
 }
 .culture__content {
   display: flex;
@@ -310,12 +324,18 @@
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 27px;
   padding-bottom: 27px;
+}
+@media (max-width: 480px) {
+  .footer__container {
+    padding: 0 15px;
+  }
 }
 .footer__logo {
   display: flex;
@@ -396,12 +416,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 78px;
+}
+
 html,
 body {
   margin: 0;
   height: 100%;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  background-color: rgb(228, 228, 228);
+  background-color: #f4f4f4;
 }
 
 button:focus-visible {
@@ -411,6 +436,7 @@ button:focus-visible {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 .btn {
@@ -444,6 +470,9 @@ a {
 .btn--primary:hover {
   transform: rotate(10deg);
 }
+.btn--primary:focus-visible {
+  outline: 2px solid #007aff;
+}
 
 .page {
   background-color: #ffffff;
@@ -452,8 +481,15 @@ a {
   flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav__toggle {
   display: none;
+}
+
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

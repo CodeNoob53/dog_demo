@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PROJECT - Головна сторінка проекту про собак">
     <title>PROJECT - Головна сторінка</title>
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/mobile.css">
@@ -10,33 +11,32 @@
 <body>
     <div class="page">
         <!-- Шапка сайту -->
-        <header class="header">
+        <header class="header" id="header">
             <div class="header__container">
                 <div class="header__logo">
                     <span class="header__logo-text">PROJECT</span>
                 </div>
                 
-                <nav class="header__nav nav">
-                    <!-- Кнопка бургер-меню (видима тільки на мобільних) -->
+                <nav class="header__nav nav" role="navigation" aria-label="Головна навігація">
+                    <!-- Кнопка бургер-меню -->
                     <button class="nav__toggle" 
                             aria-label="Відкрити головне меню"
                             aria-expanded="false"
                             aria-controls="nav-menu">
-                        <span class="nav__toggle-icon"></span>
+                        <span class="nav__toggle-icon" aria-hidden="true"></span>
                     </button>
                     
                     <ul class="nav__list" 
                         id="nav-menu"
-                        role="navigation"
                         aria-hidden="true">
                         <li class="nav__item">
-                            <a href="#projects" class="nav__link nav__link--active">PROJECTS</a>
+                            <a href="#hero" class="nav__link nav__link--active">PROJECTS</a>
                         </li>
                         <li class="nav__item">
                             <a href="#about" class="nav__link">ABOUT US</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#stories" class="nav__link">STORIES</a>
+                            <a href="#culture" class="nav__link">STORIES</a>
                         </li>
                         <li class="nav__item">
                             <a href="#contact" class="nav__link">CONTACT</a>
@@ -48,12 +48,13 @@
 
         <main class="main">
             <!-- Героїчна секція -->
-            <section class="hero">
+            <section class="hero" id="hero">
                 <div class="hero__container">
                     <div class="hero__content">
                         <img src="https://c.animaapp.com/mck8g5i3vEp5jz/img/logo-dog-3x-1.png" 
                              alt="Логотип собаки" 
-                             class="hero__logo">
+                             class="hero__logo"
+                             loading="lazy">
                         
                         <h1 class="hero__title">
                             YOUR HEADLINE<br>HERE
@@ -67,11 +68,11 @@
             </section>
 
             <!-- Основний контент -->
-            <article class="content">
+            <article class="content" id="about">
                 <div class="content__container">
                     <header class="content__header">
                         <h2 class="content__title">
-                            This is the Section Headline,<br>Continues to Two Lines
+                            This is the Section Headline,<br><span class="content__title-bottom">Two Lines</span>
                         </h2>
                         <p class="content__subtitle">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
@@ -93,21 +94,23 @@
                     </div>
 
                     <div class="content__actions">
-                        <button class="btn btn--primary">READ MORE</button>
+                        <button class="btn btn--primary" type="button">READ MORE</button>
                     </div>
                 </div>
             </article>
 
             <!-- Секція "Дізнатися більше" -->
-            <section class="culture">
+            <section class="culture" id="culture">
                 <div class="culture__container">
                     <div class="culture__content">
                         <h2 class="culture__title">
                             Learn more<br>about our culture...
                         </h2>
                         
-                        <button class="culture__play-btn" aria-label="Відтворити відео про нашу культуру">
-                            <span class="culture__play-icon">&#9654;</span>
+                        <button class="culture__play-btn" 
+                                type="button"
+                                aria-label="Відтворити відео про нашу культуру">
+                            <span class="culture__play-icon" aria-hidden="true">&#9654;</span>
                         </button>
                         
                         <p class="culture__text">
@@ -119,12 +122,13 @@
         </main>
 
         <!-- Підвал -->
-        <footer class="footer">
+        <footer class="footer" id="contact">
             <div class="footer__container">
                 <div class="footer__logo">
                     <img src="https://c.animaapp.com/mck8g5i3vEp5jz/img/logo-dog-2-3x-2.png" 
                         alt="Логотип собаки" 
-                        class="footer__logo-img">
+                        class="footer__logo-img"
+                        loading="lazy">
                     <span class="footer__logo-text">PROJECT</span>
                 </div>
 

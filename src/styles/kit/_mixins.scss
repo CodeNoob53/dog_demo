@@ -1,31 +1,35 @@
 @use 'variables' as var;
 
-// Основні міксини (видалили 80% невикористаних)
-
 // Контейнер
 @mixin container {
   max-width: var.$container-max-width;
   margin: 0 auto;
+  padding: 0 20px;
+  
+  @media (max-width: var.$breakpoint-mobile) {
+    padding: 0 15px;
+  }
 }
 
 // Базовий текст
-@mixin text-base($size: var.$font-size-sm, $color: var.$color-gray-medium) {
+@mixin text-base($size: var.$font-size-sm, $color: var.$color-gray-medium, $line-height: null) {
   font-family: var.$font-primary;
   font-size: $size;
   color: $color;
   font-weight: 400;
+  
+  @if $line-height != null {
+    line-height: $line-height;
+  }
 }
 
 // Заголовок
-@mixin heading(
-  $size: var.$font-size-xl,
-  $color: var.$color-gray-dark,
-  $line-height: null
-) {
+@mixin heading($size: var.$font-size-xl, $color: var.$color-gray-dark, $line-height: null) {
   font-family: var.$font-display;
   font-size: $size;
   color: $color;
   font-weight: 400;
+  
   @if $line-height != null {
     line-height: $line-height;
   }
@@ -37,7 +41,9 @@
   letter-spacing: var.$letter-spacing-wide;
   line-height: var.$line-height-tight;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all var.$transition-normal ease;
+  position: relative;
+  white-space: nowrap;
   
   &::after {
     content: '';
@@ -48,7 +54,7 @@
     height: 2px;
     background-color: var.$color-white;
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform var.$transition-normal ease;
   }
   
   &:hover::after,
@@ -70,10 +76,14 @@
   border: none;
   cursor: pointer;
   transform-origin: center left;
-  transition: transform 0.3s ease-in-out;
+  transition: transform var.$transition-normal ease-in-out;
   
   &:hover {
     transform: rotate(10deg);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var.$color-focus;
   }
 }
 
@@ -90,5 +100,33 @@
   color: inherit;
   font: inherit;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background var.$transition-fast, color var.$transition-fast;
+}
+
+// Абсолютне позиціонування
+@mixin absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Флекс центрування
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Приховування елементу для скрін-рідерів
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
