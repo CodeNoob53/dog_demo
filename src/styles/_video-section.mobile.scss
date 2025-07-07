@@ -4,37 +4,120 @@
 // Мобільні стилі для секції culture (відео)
 @media (max-width: var.$breakpoint-tablet) {
   .culture {
-    height: 400px;
+    height: 630px; // За макетом Figma
+    background-image: url(https://c.animaapp.com/mcs9fmcgWBBPiP/img/pexels-jozef-fehe-r-2774140-1.png);
+    background-size: cover;
+    background-position: center;
     
     &__container {
       padding: 0 20px;
+      max-width: 480px;
     }
     
     &__content {
       max-width: 100%;
+      gap: 40px;
+      padding: 103px 0 50px; // Відступи за макетом
+    }
+    
+    &__title {
+      font-size: 53px; // За макетом
+      line-height: 50px;
+      max-width: 100%;
+      margin: 0;
+      width: 480px;
+      text-align: center;
+      color: var.$color-white;
+    }
+    
+    &__play-btn {
+      width: 100px; // За макетом
+      height: 100px;
+      margin: 50px 0 40px; // Відступи за макетом
+      background-color: var.$color-white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      // Іконка play всередині кнопки
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-40%, -50%); // Оптичне центрування
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 20px solid white;
+      }
+      
+      &:hover {
+        transform: scale(1.05);
+        
+        &::before {
+          border-left-color: white;
+        }
+      }
+    }
+    
+    &__play-icon {
+      display: none; // Ховаємо текстову іконку
+    }
+    
+    &__text {
+      font-size: var.$font-size-xl;
+      line-height: var.$line-height-loose;
+      max-width: 396px; // За макетом
+      text-align: center;
+      color: var.$color-white;
+      margin: 0 auto;
+      padding: 0 46px; // Бокові відступи за макетом
+    }
+  }
+}
+
+// Стилі для екранів 480px і менше
+@media (max-width: var.$breakpoint-mobile) {
+  .culture {
+    height: 550px;
+    
+    &__container {
+      padding: 0 15px;
+    }
+    
+    &__content {
+      padding: 80px 0 40px;
       gap: 30px;
     }
     
     &__title {
-      font-size: var.$font-size-xl;
-      line-height: var.$line-height-relaxed;
-      max-width: 100%;
+      font-size: 42px;
+      line-height: 40px;
+      width: 100%;
+      padding: 0 15px;
     }
     
     &__play-btn {
-      width: 100px;
-      height: 100px;
-      margin: 15px 0;
-    }
-    
-    &__play-icon {
-      font-size: 24px;
+      width: 80px;
+      height: 80px;
+      margin: 30px 0;
+      
+      &::before {
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 16px solid var.$color-brown-light;
+      }
     }
     
     &__text {
       font-size: var.$font-size-lg;
-      line-height: var.$line-height-relaxed;
+      line-height: 28px;
       max-width: 100%;
+      padding: 0 30px;
     }
   }
 }

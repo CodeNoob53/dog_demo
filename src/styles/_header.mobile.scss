@@ -4,10 +4,12 @@
 // Мобільні стилі для хедера
 @media (max-width: var.$breakpoint-tablet) {
   .header {
-    height: 60px;
+    height: 90px; // За Figma макетом
+    background-color: var.$color-brown-dark; // Коричневий фон як в макеті
     
     &__container {
-      padding: 0 20px;
+      padding: 0 27px; // Відступи як в макеті
+      position: relative;
     }
     
     &__logo {
@@ -15,7 +17,11 @@
       transform: none;
       
       &-text {
-        font-size: var.$font-size-md;
+        font-size: var.$font-size-lg; // 20px як в макеті
+        letter-spacing: var.$letter-spacing-normal;
+        position: absolute;
+        top: 41px;
+        left: 27px;
       }
     }
     
@@ -30,33 +36,26 @@
     &__toggle {
       display: block;
       position: absolute;
-      right: 20px;
+      right: 27px; // Як в макеті
       top: 50%;
       transform: translateY(-50%);
-      width: 35px;
-      height: 35px;
+      width: 22px; // Розмір як в макеті
+      height: 16px;
       background: none;
       border: none;
       cursor: pointer;
       z-index: 1001;
-      padding: 5px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      padding: 0;
       
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-      
-      // Стилі для іконки бургера
+      // Іконка гамбургера (3 лінії)
       &-icon {
         position: relative;
         display: block;
-        width: 25px;
-        height: 3px;
+        width: 22px;
+        height: 2px;
         background-color: var.$color-white;
-        border-radius: 2px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        margin: 0 auto;
+        border-radius: 1px;
+        transition: all 0.3s ease;
         
         &::before,
         &::after {
@@ -64,24 +63,22 @@
           position: absolute;
           left: 0;
           width: 100%;
-          height: 3px;
+          height: 2px;
           background-color: var.$color-white;
-          border-radius: 2px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          border-radius: 1px;
+          transition: all 0.3s ease;
         }
         
         &::before {
-          top: -8px;
-          transform-origin: center;
+          top: -6px;
         }
         
         &::after {
-          bottom: -8px;
-          transform-origin: center;
+          bottom: -6px;
         }
       }
       
-      // Стилі для активного стану (хрестик)
+      // Анімація при відкритті
       &--active {
         .nav__toggle-icon {
           background-color: transparent;
@@ -101,51 +98,42 @@
     
     &__list {
       position: fixed;
-      top: 60px; // Меню починається відразу під хедером
+      top: 90px; // Відповідно до висоти хедера
       left: 0;
       right: 0;
       width: 100vw;
-      height: 0; // Початкова висота 0
-      background: linear-gradient(135deg, 
-        rgba(90, 69, 49, 0.97) 0%, 
-        rgba(183, 120, 68, 0.95) 100%);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      height: 0;
+      background-color: var.$color-brown-dark;
       
-      // Ховаємо за замовчуванням
+      // Початково приховане
       visibility: hidden;
       opacity: 0;
-      overflow: hidden; // Ховаємо контент коли висота 0
+      overflow: hidden;
       
-      // Flex властивості
+      // Flex для вертикального розташування
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       
-      // Анімація висоти та прозорості
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      // Плавна анімація
+      transition: all 0.4s ease;
       
-      // Padding і gap (будуть видимі тільки при відкритому меню)
-      padding: 0 20px;
+      padding: 0;
       gap: 0;
-      
-      // Z-index
       z-index: 1000;
       
-      // Скидання list стилів
+      // Скидання стилів списку
       list-style: none;
       margin: 0;
-      padding-left: 0;
-      padding-right: 0;
       
-      // Активний стан меню - розкриваємо з-під хедера
+      // Активний стан меню
       &--active {
         visibility: visible;
         opacity: 1;
-        height: calc(100vh - 60px); // Повна висота мінус хедер
-        padding: 80px 20px 40px; // Відновлюємо padding
-        gap: 40px; // Відновлюємо gap
+        height: calc(100vh - 90px);
+        padding: 40px 20px;
+        gap: 30px;
       }
     }
     
@@ -153,11 +141,11 @@
       position: static;
       width: auto;
       opacity: 0;
-      transform: translateY(20px); // Менший відступ для плавнішої анімації
+      transform: translateY(20px);
       animation: none;
-      transition: all 0.3s ease; // Додаємо базову анімацію
+      transition: all 0.3s ease;
       
-      // Анімація появи елементів меню
+      // Анімація появи елементів
       .nav__list--active & {
         animation: slideInFromTop 0.5s ease forwards;
         
@@ -169,102 +157,67 @@
     }
     
     &__link {
-      font-size: var.$font-size-lg;
+      font-size: var.$font-size-md;
       font-weight: 500;
       padding: 15px 30px;
-      border-radius: 12px;
+      border-radius: 8px;
       transition: all 0.3s ease;
       display: block;
       text-align: center;
-      min-width: 180px;
-      border: 2px solid transparent;
-      position: relative;
-      overflow: hidden;
+      min-width: 150px;
+      color: var.$color-white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       
-      // Видаляємо підкреслення від десктопної версії
+      // Видаляємо підкреслення
       &::before,
       &::after {
         display: none !important;
       }
       
       &:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.1);
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       }
       
       &--active {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.4);
-        
-        &::before {
-          display: none !important;
-        }
+        background-color: rgba(255, 255, 255, 0.15);
       }
     }
   }
 }
 
-// Додаткові стилі для екранів 480px і менше
+// Стилі для дуже маленьких екранів
 @media (max-width: var.$breakpoint-mobile) {
   .header {
-    height: 50px;
-    
     &__container {
-      padding: 0 15px;
+      padding: 0 20px;
     }
     
     &__logo-text {
-      font-size: var.$font-size-sm;
+      left: 20px;
     }
   }
   
   .nav {
     &__toggle {
-      right: 15px;
-      width: 30px;
-      height: 30px;
-      padding: 3px;
-      
-      &-icon {
-        width: 20px;
-        height: 2px;
-        
-        &::before,
-        &::after {
-          height: 2px;
-        }
-        
-        &::before {
-          top: -6px;
-        }
-        
-        &::after {
-          bottom: -6px;
-        }
-      }
+      right: 20px;
     }
     
-    &__list {
-      top: 50px; // Адаптуємо під менший хедер
-      
-      &--active {
-        height: calc(100vh - 50px); // Адаптуємо висоту
-        padding: 60px 15px 30px; // Менші відступи
-        gap: 30px; // Менший gap
-      }
+    &__list--active {
+      padding: 30px 15px;
+      gap: 25px;
     }
     
     &__link {
-      font-size: var.$font-size-md;
+      font-size: var.$font-size-sm;
       padding: 12px 25px;
-      min-width: 160px;
+      min-width: 130px;
     }
   }
 }
 
-// Оновлена анімація для елементів меню - з'являються зверху
+// Анімація для елементів меню
 @keyframes slideInFromTop {
   from {
     opacity: 0;
@@ -273,31 +226,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-// Додаткова анімація для плавного розкриття меню
-@keyframes expandFromTop {
-  from {
-    height: 0;
-    opacity: 0;
-  }
-  to {
-    height: calc(100vh - 60px);
-    opacity: 1;
-  }
-}
-
-// Стилі для плавного розкриття на мобільних
-@media (max-width: var.$breakpoint-mobile) {
-  @keyframes expandFromTop {
-    from {
-      height: 0;
-      opacity: 0;
-    }
-    to {
-      height: calc(100vh - 50px);
-      opacity: 1;
-    }
   }
 }
