@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openMenu = () => {
         isMenuOpen = true;
         toggle.classList.add('nav__toggle--active');
-        list.classList.add('nav__list--is-active'); // Використовуємо правильний клас
+        list.classList.add('nav__list--active'); // Використовуємо правильний клас
         body.classList.add('menu-open');
         
         // Оновлюємо ARIA-атрибути для доступності
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
         isMenuOpen = false;
         toggle.classList.remove('nav__toggle--active');
-        list.classList.remove('nav__list--is-active'); // Використовуємо правильний клас
+        list.classList.remove('nav__list--active'); // Використовуємо правильний клас
         body.classList.remove('menu-open');
         
         // Оновлюємо ARIA-атрибути для доступності
