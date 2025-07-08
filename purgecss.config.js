@@ -1,14 +1,27 @@
 module.exports = {
   content: ['src/**/*.html', 'src/**/*.js'],
-  css: ['src/dist/style.css', 'src/dist/mobile.css'],
+  
+  // Використовуємо glob pattern для CSS файлів БЕЗ output
+  css: ['src/dist/*.css'],
+  
+  // ВИДАЛЯЄМО output - PurgeCSS замінить файли на місці
+  
+  // Налаштування виводу
+  rejected: false,        // Не показувати видалені селектори
+  stdin: false,          // Не читати з stdin
+  stdout: false,         // Не виводити в stdout (це приховує масив CSS)
+  
+  // Алгоритм пошуку селекторів
   defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  
+  // Безпечні класи, які не треба видаляти
   safelist: [
-    // Стани меню (оновлені класи)
+    // Стани меню
     'is-open',
     'menu-open',
-    'nav__toggle-active',        // Змінено з nav__toggle--active
-    'nav__list-active',          // Змінено з nav__list--active
-    'nav__link--active',         // Залишаємо для модифікатора посилання
+    'nav__toggle-active',
+    'nav__list-active',
+    'nav__link--active',
     
     // Префікси компонентів
     /^header__/,
@@ -30,9 +43,25 @@ module.exports = {
     /before/,
     /after/,
     
-    // Додаткові класи для безпеки
+    // Анімації з проєкту
     'slideInFromTop',
     'logoFlip',
-    'fadeIn'
+    'fadeIn',
+    
+    // Додаткові класи для безпеки
+    /^flex/,
+    /^grid/,
+    /^transform/,
+    /^transition/
   ],
+  
+  // Додаткові налаштування
+  variables: true,       // Зберігати CSS змінні
+  keyframes: true,      // Зберігати keyframes
+  fontFace: true,       // Зберігати @font-face
+  
+  // Блокування селекторів (regex для ігнорування)
+  blocklist: [
+    /^\.unused/,        // Видаляти класи що починаються з .unused
+  ]
 };
