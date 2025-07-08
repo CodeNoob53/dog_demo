@@ -1,11 +1,11 @@
-@use 'kit/variables' as var;
-@use 'kit/mixins' as mix;
+@use "kit/variables" as var;
+@use "kit/mixins" as mix;
 
 // Мобільні стилі для секції culture (відео)
 @media (max-width: var.$breakpoint-tablet) {
   .culture {
     height: 630px; // За макетом Figma
-    background-image: url('https://c.animaapp.com/mcs9fmcgWBBPiP/img/pexels-jozef-fehe-r-2774140-1.png');
+    background-image: url("https://c.animaapp.com/mcs9fmcgWBBPiP/img/pexels-jozef-fehe-r-2774140-1.png");
     background-size: cover;
     background-position: center;
 
@@ -40,7 +40,7 @@
 
       // Іконка play всередині кнопки
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 50%;
         top: 50%;

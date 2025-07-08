@@ -1,5 +1,5 @@
-@use 'kit/variables' as var;
-@use 'kit/mixins' as mix;
+@use "kit/variables" as var;
+@use "kit/mixins" as mix;
 
 // Мобільні стилі для футера за макетом Figma
 @media (max-width: var.$breakpoint-tablet) {

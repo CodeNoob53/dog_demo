@@ -13,24 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функції управління меню
     const openMenu = () => {
         isMenuOpen = true;
-        toggle.classList.add('nav__toggle--active');
-        list.classList.add('nav__list--active'); // Використовуємо правильний клас
+        toggle.classList.add('nav__toggle-active');
+        list.classList.add('nav__list-active'); // Використовуємо одинарний дефіс
         body.classList.add('menu-open');
         
         // Оновлюємо ARIA-атрибути для доступності
         toggle.setAttribute('aria-expanded', 'true');
-        list.setAttribute('aria-hidden', 'false');
     };
 
     const closeMenu = () => {
         isMenuOpen = false;
-        toggle.classList.remove('nav__toggle--active');
-        list.classList.remove('nav__list--active'); // Використовуємо правильний клас
+        toggle.classList.remove('nav__toggle-active');
+        list.classList.remove('nav__list-active'); // Використовуємо одинарний дефіс
         body.classList.remove('menu-open');
         
         // Оновлюємо ARIA-атрибути для доступності
         toggle.setAttribute('aria-expanded', 'false');
-        list.setAttribute('aria-hidden', 'true');
     };
 
     // Переключення меню

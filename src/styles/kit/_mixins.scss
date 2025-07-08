@@ -1,11 +1,11 @@
-@use 'variables' as var;
+@use "variables" as var;
 
 // Контейнер
 @mixin container {
   max-width: var.$container-max-width;
   margin: 0 auto;
   padding: 0 20px;
-  
+
   @media (max-width: var.$breakpoint-mobile) {
     padding: 0 15px;
   }
@@ -13,11 +13,11 @@
 
 // Базовий текст
 @mixin text-base($size: var.$font-size-sm, $color: var.$color-gray-medium, $line-height: null) {
-  font-family: var.$font-primary;
+  font-family: var.$fontPrimary;
   font-size: $size;
   color: $color;
   font-weight: 400;
-  
+
   @if $line-height {
     line-height: $line-height;
   }
@@ -25,11 +25,11 @@
 
 // Заголовок
 @mixin heading($size: var.$font-size-xl, $color: var.$color-gray-dark, $line-height: null) {
-  font-family: var.$font-display;
+  font-family: var.$fontDisplay;
   font-size: $size;
   color: $color;
   font-weight: 400;
-  
+
   @if $line-height {
     line-height: $line-height;
   }
@@ -45,9 +45,9 @@
   transition: all var.$transition-normal ease;
   position: relative;
   white-space: nowrap;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
@@ -57,7 +57,7 @@
     transform: scaleX(0);
     transition: transform var.$transition-normal ease;
   }
-  
+
   &:hover::after,
   &--active::after {
     transform: scaleX(1);
@@ -78,11 +78,11 @@
   cursor: pointer;
   transform-origin: center left;
   transition: transform var.$transition-normal ease-in-out;
-  
+
   &:hover {
     transform: rotate(10deg);
   }
-  
+
   &:focus-visible {
     outline: 2px solid var.$color-focus;
   }
@@ -101,7 +101,9 @@
   color: inherit;
   font: inherit;
   cursor: pointer;
-  transition: background var.$transition-fast, color var.$transition-fast;
+  transition:
+    background var.$transition-fast,
+    color var.$transition-fast;
 }
 
 // Абсолютне позиціонування

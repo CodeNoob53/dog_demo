@@ -1,11 +1,11 @@
-@use 'kit/variables' as var;
-@use 'kit/mixins' as mix;
+@use "kit/variables" as var;
+@use "kit/mixins" as mix;
 
 // Імпорт мобільних стилів компонентів
-@use 'header.mobile';
-@use 'text-section.mobile';
-@use 'video-section.mobile';
-@use 'footer.mobile';
+@use "header.mobile";
+@use "text-section.mobile";
+@use "video-section.mobile";
+@use "footer.mobile";
 
 // Глобальні мобільні стилі
 body.menu-open {

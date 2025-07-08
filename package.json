@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "Fundamentals of Web Development Final Project",
   "main": "src/index.html",
-  "scripts": {
-    "test": "jest --reporters=jest-junit",
-    "build": "echo \"Dummy build script for Autocode\"",
-    "compile": "sass src/styles/style.scss src/dist/style.css && sass src/styles/mobile.scss src/dist/mobile.css",
-    "prod": "npm run compile && postcss src/dist/style.css --use autoprefixer --use cssnano --output src/dist/style.min.css && postcss src/dist/mobile.css --use autoprefixer --use cssnano --output src/dist/mobile.min.css && purgecss --config purgecss.config.js --output src/dist/",
-    "lint": "stylelint \"src/styles/**/*.scss\" --fix",
-    "lint:check": "stylelint \"src/styles/**/*.scss\"",
-    "format": "prettier --write \"src/styles/**/*.scss\"",
-    "format:check": "prettier --check \"src/styles/**/*.scss\"",
-    "sass:watch": "sass --watch src/styles:src/dist",
-    "clean": "rimraf src/dist/*.css src/dist/*.css.map"
-  },
+"scripts": {
+  "test": "jest --reporters=jest-junit",
+  "build": "echo \"Dummy build script for Autocode\"",
+  "compile": "sass src/styles/style.scss src/dist/style.css && sass src/styles/mobile.scss src/dist/mobile.css",
+  "prod": "npm run compile && npm run minify && npm run purge",
+  "prod-full": "npm run compile && npm run minify && npm run purge",
+  "minify": "postcss src/dist/style.css --use autoprefixer --use cssnano --output src/dist/style.min.css && postcss src/dist/mobile.css --use autoprefixer --use cssnano --output src/dist/mobile.min.css",
+  "purge": "purgecss --config purgecss.config.js",
+  "lint": "stylelint \"src/styles/**/*.scss\" --fix",
+  "lint:check": "stylelint \"src/styles/**/*.scss\"",
+  "format": "prettier --write \"src/styles/**/*.scss\"",
+  "format:check": "prettier --check \"src/styles/**/*.scss\"",
+  "sass:watch": "sass --watch src/styles:src/dist",
+  "clean": "if exist src\\dist rmdir /s /q src\\dist && mkdir src\\dist"
+},
   "devDependencies": {
     "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.5",

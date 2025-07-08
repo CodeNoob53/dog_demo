@@ -1,5 +1,5 @@
-@use 'kit/variables' as var;
-@use 'kit/mixins' as mix;
+@use "kit/variables" as var;
+@use "kit/mixins" as mix;
 
 // Мобільні стилі для хедера
 @media (max-width: var.$breakpoint-tablet) {
@@ -12,16 +12,16 @@
     right: 0;
     width: 100%;
     z-index: var.$z-header; // Високий z-index для видимості поверх контенту
-    
+
     &__container {
       padding: 0 27px; // Відступи як в макеті
       position: relative;
     }
-    
+
     &__logo {
       position: static;
       transform: none;
-      
+
       &-text {
         font-size: var.$font-size-lg; // 20px як в макеті
         letter-spacing: var.$letter-spacing-normal;
@@ -30,18 +30,18 @@
         left: 27px;
       }
     }
-    
+
     &__nav {
       position: static;
       transform: none;
     }
   }
-  
+
   // Додаємо відступ зверху для body, щоб контент не ховався під хедером
   .page {
     padding-top: 90px; // Компенсуємо висоту фіксованого хедера
   }
-  
+
   // Стилі для бургер-меню
   .nav {
     &__toggle {
@@ -57,7 +57,7 @@
       cursor: pointer;
       z-index: 1001;
       padding: 0;
-      
+
       // Іконка гамбургера (3 лінії)
       &-icon {
         position: relative;
@@ -67,10 +67,10 @@
         background-color: var.$color-white;
         border-radius: 1px;
         transition: all 0.3s ease;
-        
+
         &::before,
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           left: 0;
           width: 100%;
@@ -79,26 +79,26 @@
           border-radius: 1px;
           transition: all 0.3s ease;
         }
-        
+
         &::before {
           top: -6px;
         }
-        
+
         &::after {
           bottom: -6px;
         }
       }
-      
+
       // Анімація при відкритті
-      &--active {
+      &-active {
         .nav__toggle-icon {
           background-color: transparent;
-          
+
           &::before {
             top: 0;
             transform: rotate(45deg);
           }
-          
+
           &::after {
             bottom: 0;
             transform: rotate(-45deg);
@@ -106,7 +106,7 @@
         }
       }
     }
-    
+
     &__list {
       position: fixed;
       top: 90px; // Відповідно до висоти хедера
@@ -115,30 +115,30 @@
       width: 100vw;
       height: 0;
       background-color: var.$color-brown-dark;
-      
+
       // Початково приховане
       visibility: hidden;
       opacity: 0;
       overflow: hidden;
-      
+
       // Flex для вертикального розташування
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      
+
       // Плавна анімація
       transition: all 0.4s ease;
       padding: 0;
       gap: 0;
       z-index: 1000;
-      
+
       // Скидання стилів списку
       list-style: none;
       margin: 0;
-      
+
       // Активний стан меню
-      &--active {
+      &-active {
         visibility: visible;
         opacity: 1;
         height: calc(100vh - 90px);
@@ -146,7 +146,7 @@
         gap: 30px;
       }
     }
-    
+
     &__item {
       position: static;
       width: auto;
@@ -154,18 +154,29 @@
       transform: translateY(20px);
       animation: none;
       transition: all 0.3s ease;
-      
+
       // Анімація появи елементів
-      .nav__list--active & {
+      .nav__list-active & {
         animation: slideInFromTop 0.5s ease forwards;
-        
-        &:nth-child(1) { animation-delay: 0.1s; }
-        &:nth-child(2) { animation-delay: 0.2s; }
-        &:nth-child(3) { animation-delay: 0.3s; }
-        &:nth-child(4) { animation-delay: 0.4s; }
+
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+
+        &:nth-child(4) {
+          animation-delay: 0.4s;
+        }
       }
     }
-    
+
     &__link {
       font-size: var.$font-size-md;
       font-weight: 500;
@@ -178,18 +189,18 @@
       color: var.$color-white;
       text-transform: uppercase;
       letter-spacing: 1px;
-      
+
       // Видаляємо підкреслення
       &::before,
       &::after {
         display: none !important;
       }
-      
+
       &:hover {
         background-color: rgb(255 255 255 / 10%);
         transform: translateY(-2px);
       }
-      
+
       &--active {
         background-color: rgb(255 255 255 / 15%);
       }
@@ -203,22 +214,22 @@
     &__container {
       padding: 0 20px;
     }
-    
+
     &__logo-text {
       left: 20px;
     }
   }
-  
+
   .nav {
     &__toggle {
       right: 20px;
     }
-    
-    &__list--is-active {
+
+    &__list-active {
       padding: 30px 15px;
       gap: 25px;
     }
-    
+
     &__link {
       font-size: var.$font-size-sm;
       padding: 12px 25px;

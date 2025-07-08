@@ -1,5 +1,5 @@
-@use 'kit/variables' as var;
-@use 'kit/mixins' as mix;
+@use "kit/variables" as var;
+@use "kit/mixins" as mix;
 
 // 3D-фліп анімація логотипу
 @keyframes logoFlip {
@@ -33,14 +33,14 @@
 .hero {
   height: var.$hero-height;
   background-image:
-    url('/src/assets/dog_paws_desc.png'),
+    url("/src/assets/dog_paws_desc.png"),
     /* Лапки десктоп*/
       linear-gradient(
         /* Градієнт*/ 0deg,
         rgb(163 126 92 / 68.5%) -5.615%,
         rgb(90 69 49 / 0%) 52.259%
       ),
-    url('/src/assets/dog_hero.jpg'); // Основне фото
+    url("/src/assets/dog_hero.jpg"); // Основне фото
 
   background-size: cover, cover, cover;
   background-position: center, center, center;
@@ -118,12 +118,12 @@
   }
 
   &__subtitle {
-    @include mix.text-base(var.$font-size-xl, var.$color-gray-medium);
-
-    font-family: var.$font-secondary;
+    font-family: var.$fontSecondary;
     line-height: var.$line-height-loose;
     max-width: 500px;
     margin: 0 auto;
+
+    @include mix.text-base(var.$font-size-xl, var.$color-gray-medium);
   }
 
   &__body {

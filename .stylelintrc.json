@@ -7,7 +7,7 @@
   ],
   "rules": {
     "scss/at-rule-no-unknown": null,
-    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]*(-[a-z][a-zA-Z0-9]*)*$",
+    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9_-]*$",
     "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]*(-[a-z0-9][a-zA-Z0-9]*)*$",
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]*(__[a-z][a-zA-Z0-9]*)?(-[a-z][a-zA-Z0-9]*)*$",
     "keyframes-name-pattern": "^[a-z][a-zA-Z0-9]*$",
@@ -15,6 +15,13 @@
     "value-no-vendor-prefix": null,
     "at-rule-no-vendor-prefix": null,
     "selector-no-vendor-prefix": null,
-    "no-duplicate-selectors": null
+    "no-duplicate-selectors": null,
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ]
   }
-} 
+}

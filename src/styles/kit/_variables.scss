@@ -9,10 +9,10 @@ $color-focus: #007aff;
 $color-background: #f4f4f4;
 
 // Шрифти
-$font-primary: "Source Sans Pro", helvetica, sans-serif;
-$font-display: "Nerko One", helvetica, sans-serif;
-$font-secondary: "Poppins", helvetica, sans-serif;
-$font-accent: "Oswald", helvetica, sans-serif;
+$fontPrimary: "Source Sans Pro", helvetica, sans-serif;
+$fontDisplay: "Nerko One", helvetica, sans-serif;
+$fontSecondary: "Poppins", helvetica, sans-serif;
+$fontAccent: "Oswald", helvetica, sans-serif;
 
 // Розміри шрифтів
 $font-size-xs: 14px;
@@ -34,10 +34,10 @@ $line-height-hero: 64px;
 $line-height-large: 72px;
 
 // Відступи буквами
-$letter-spacing-wide: 2.80px;
-$letter-spacing-normal: 2.00px;
-$letter-spacing-tight: 1.40px;
-$letter-spacing-extra: 3.60px;
+$letter-spacing-wide: 2.8px;
+$letter-spacing-normal: 2px;
+$letter-spacing-tight: 1.4px;
+$letter-spacing-extra: 3.6px;
 
 // Розміри контейнера та секцій
 $container-max-width: 1200px;

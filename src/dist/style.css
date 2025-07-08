@@ -1,5 +1,5 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Nerko+One:400|Poppins:400|Oswald:400");
+@import "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css";
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Nerko+One:400|Poppins:400|Oswald:400";
 @keyframes logoFlip {
   0% {
     transform: rotateY(0deg) scale(1);
@@ -30,9 +30,9 @@
   justify-content: space-around;
 }
 .header__logo-text {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-size: 20px;
-  color: #ffffff;
+  color: #fff;
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 16px;
@@ -49,9 +49,9 @@
   gap: 40px;
 }
 .nav__link {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-size: 14px;
-  color: #ffffff;
+  color: #fff;
   font-weight: 400;
   letter-spacing: 2.8px;
   line-height: 16px;
@@ -69,7 +69,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #fff;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -100,7 +100,7 @@
 
 .hero {
   height: 690px;
-  background-image: url(/src/assets/dog_paws_desc.png), linear-gradient(0deg, rgba(163, 126, 92, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url(/src/assets/dog_hero.jpg);
+  background-image: url("/src/assets/dog_paws_desc.png"), linear-gradient(0deg, rgba(163, 126, 92, 0.685) -5.615%, rgba(90, 69, 49, 0) 52.259%), url("/src/assets/dog_hero.jpg");
   background-size: cover, cover, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -126,8 +126,7 @@
   height: 221px;
   top: 32px;
   left: 137px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   animation: logoFlip 4s ease-in-out infinite;
 }
 .hero__title {
@@ -135,7 +134,7 @@
   width: 415px;
   top: 225px;
   left: 162px;
-  font-family: "Nerko One", Helvetica, sans-serif;
+  font-family: "Nerko One", helvetica, sans-serif;
   font-size: 96px;
   color: #5a4531;
   font-weight: 400;
@@ -146,7 +145,7 @@
   width: 415px;
   top: 508px;
   left: 162px;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-size: 24px;
   color: #464547;
   font-weight: 400;
@@ -154,7 +153,7 @@
 }
 
 .content {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 72px 0 100px;
 }
 .content__container {
@@ -172,7 +171,7 @@
   margin-bottom: 80px;
 }
 .content__title {
-  font-family: "Nerko One", Helvetica, sans-serif;
+  font-family: "Nerko One", helvetica, sans-serif;
   font-size: 70px;
   color: #464547;
   font-weight: 400;
@@ -180,14 +179,14 @@
   margin-bottom: 48px;
 }
 .content__subtitle {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 24px;
-  color: #666666;
-  font-weight: 400;
-  font-family: "Poppins", Helvetica, sans-serif;
+  font-family: "Poppins", helvetica, sans-serif;
   line-height: 32px;
   max-width: 500px;
   margin: 0 auto;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-size: 24px;
+  color: #666;
+  font-weight: 400;
 }
 .content__body {
   display: grid;
@@ -203,9 +202,9 @@
   flex-direction: column;
 }
 .content__text {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-size: 16px;
-  color: #666666;
+  color: #666;
   font-weight: 400;
   line-height: 22px;
 }
@@ -216,7 +215,7 @@
 
 .culture {
   height: 637px;
-  background-image: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/pexels-jozef-fehe-r-2774140-1.png);
+  background-image: url("https://c.animaapp.com/mck8g5i3vEp5jz/img/pexels-jozef-fehe-r-2774140-1.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -226,14 +225,14 @@
   justify-content: center;
 }
 .culture__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 @media (max-width: 480px) {
   .culture__container {
@@ -251,20 +250,24 @@
   gap: 40px;
 }
 .culture__title {
-  font-family: "Nerko One", Helvetica, sans-serif;
-  font-size: 62px;
-  color: #ffffff;
-  font-weight: 400;
-  line-height: 50px;
   text-align: center;
   margin: 0;
   max-width: 505px;
+  font-family: "Nerko One", helvetica, sans-serif;
+  font-size: 62px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 50px;
+}
+.culture__play-icon {
+  color: #b77844;
+  margin-left: 8px;
 }
 .culture__play-btn {
   position: relative;
   width: 138px;
   height: 138px;
-  background: #ffffff;
+  background: #fff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -299,21 +302,17 @@
   transform: scale(1.01);
 }
 .culture__play-btn:hover::before {
-  border-left-color: #ffffff;
-}
-.culture__play-icon {
-  color: #b77844;
-  margin-left: 8px;
+  border-left-color: #fff;
 }
 .culture__text {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 24px;
-  color: #ffffff;
-  font-weight: 400;
   line-height: 32px;
   text-align: center;
   margin: 0;
   max-width: 516px;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 400;
 }
 
 .footer {
@@ -322,15 +321,15 @@
   margin-top: auto;
 }
 .footer__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 27px;
   padding-bottom: 27px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 @media (max-width: 480px) {
   .footer__container {
@@ -348,16 +347,15 @@
 .footer__logo-img {
   width: 133px;
   height: 121px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .footer__logo-text {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 18px;
-  color: #ffffff;
-  font-weight: 400;
   letter-spacing: 3.6px;
   line-height: 16px;
+  font-weight: 400;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-size: 18px;
+  color: #fff;
   font-weight: 400;
 }
 .footer__contact-info {
@@ -375,37 +373,37 @@
   gap: 8px;
 }
 .footer__address-line {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.6980392157);
-  font-weight: 400;
   line-height: 19px;
   margin: 0;
-}
-.footer__email {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6980392157);
   font-weight: 400;
+}
+.footer__email {
   line-height: 19px;
   transition: color 0.3s ease;
   margin-top: 13px;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6980392157);
+  font-weight: 400;
 }
 .footer__email:hover {
-  color: #ffffff;
+  color: #fff;
 }
 .footer__copyright {
   margin-top: 70px;
   margin-right: 128px;
 }
 .footer__copyright-text {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.6980392157);
-  font-weight: 400;
   line-height: 19px;
   white-space: nowrap;
   margin: 0;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6980392157);
+  font-weight: 400;
 }
 .footer__brand {
   color: rgba(255, 255, 255, 0.6980392157);
@@ -425,7 +423,7 @@ html,
 body {
   margin: 0;
   height: 100%;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   background-color: #f4f4f4;
 }
 
@@ -455,7 +453,7 @@ a {
 }
 .btn--primary {
   background-color: #b77844;
-  color: #ffffff;
+  color: #fff;
   width: 115px;
   height: 36px;
   border-radius: 18px;
@@ -475,7 +473,7 @@ a {
 }
 
 .page {
-  background-color: #ffffff;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -491,4 +489,6 @@ a {
 body.menu-open {
   overflow: hidden;
   width: 100%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

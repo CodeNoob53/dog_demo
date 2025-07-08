@@ -1,5 +1,5 @@
-@use 'kit/variables' as var;
-@use 'kit/mixins' as mix;
+@use "kit/variables" as var;
+@use "kit/mixins" as mix;
 
 .footer {
   background-color: var.$color-brown-dark;
@@ -7,14 +7,14 @@
   margin-top: auto;
 
   &__container {
-    @include mix.container;
-
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 27px;
     padding-bottom: 27px;
+
+    @include mix.container;
   }
 
   &__logo {
@@ -32,11 +32,11 @@
     }
 
     &-text {
-      @include mix.text-base(var.$font-size-md, var.$color-white);
-
       letter-spacing: var.$letter-spacing-extra;
       line-height: var.$line-height-tight;
       font-weight: 400;
+
+      @include mix.text-base(var.$font-size-md, var.$color-white);
     }
   }
 
@@ -56,19 +56,19 @@
     gap: 8px;
 
     &-line {
-      @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
-
       line-height: var.$line-height-normal;
       margin: 0;
+
+      @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
     }
   }
 
   &__email {
-    @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
-
     line-height: var.$line-height-normal;
     transition: color 0.3s ease;
     margin-top: 13px;
+
+    @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
 
     &:hover {
       color: var.$color-white;
@@ -80,11 +80,11 @@
     margin-right: 128px;
 
     &-text {
-      @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
-
       line-height: var.$line-height-normal;
       white-space: nowrap;
       margin: 0;
+
+      @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
     }
   }
 
