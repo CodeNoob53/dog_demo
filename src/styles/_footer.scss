@@ -5,18 +5,18 @@
   background-color: var.$color-brown-dark;
   height: var.$footer-height;
   margin-top: auto;
-  
+
   &__container {
     @include mix.container;
+
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 27px;
     padding-bottom: 27px;
-
   }
-  
+
   &__logo {
     display: flex;
     flex-direction: column;
@@ -24,21 +24,22 @@
     gap: 8px;
     flex-shrink: 0;
     margin-left: 191px; // Відступ від лівого краю як в макеті
-    
+
     &-img {
       width: 133px;
       height: 121px;
       object-fit: cover;
     }
-    
+
     &-text {
       @include mix.text-base(var.$font-size-md, var.$color-white);
+
       letter-spacing: var.$letter-spacing-extra;
       line-height: var.$line-height-tight;
       font-weight: 400;
     }
   }
-  
+
   &__contact-info {
     display: flex;
     flex-direction: column;
@@ -46,45 +47,47 @@
     flex: 1;
     margin-left: 24px; // Відступ від лого як в макеті
   }
-  
+
   &__address {
     font-style: normal;
     display: flex;
     flex-direction: column;
     margin-top: 19px;
     gap: 8px;
-    
+
     &-line {
       @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
+
       line-height: var.$line-height-normal;
       margin: 0;
     }
   }
-  
+
   &__email {
     @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
+
     line-height: var.$line-height-normal;
     transition: color 0.3s ease;
     margin-top: 13px;
-    
+
     &:hover {
       color: var.$color-white;
     }
   }
-  
+
   &__copyright {
     margin-top: 70px;
     margin-right: 128px;
 
-    
     &-text {
       @include mix.text-base(var.$font-size-sm, var.$color-white-transparent);
+
       line-height: var.$line-height-normal;
       white-space: nowrap;
       margin: 0;
     }
   }
-  
+
   &__brand {
     color: var.$color-white-transparent;
   }

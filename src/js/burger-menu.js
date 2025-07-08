@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const openMenu = () => {
         isMenuOpen = true;
         toggle.classList.add('nav__toggle--active');
-        list.classList.add('nav__list--active'); // Додаємо клас для показу меню
-        body.classList.add('menu-open'); // Додаємо клас для overflow: hidden на body
+        list.classList.add('nav__list--is-active'); // Використовуємо правильний клас
+        body.classList.add('menu-open');
         
         // Оновлюємо ARIA-атрибути для доступності
         toggle.setAttribute('aria-expanded', 'true');
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
         isMenuOpen = false;
         toggle.classList.remove('nav__toggle--active');
-        list.classList.remove('nav__list--active'); // Видаляємо клас для приховування меню
-        body.classList.remove('menu-open'); // Видаляємо клас для overflow: hidden
+        list.classList.remove('nav__list--is-active'); // Використовуємо правильний клас
+        body.classList.remove('menu-open');
         
         // Оновлюємо ARIA-атрибути для доступності
         toggle.setAttribute('aria-expanded', 'false');
@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Закриття при зміні розміру вікна (перехід на десктоп)
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && isMenuOpen) { // Використовуйте ваш breakpoint для мобільної версії
+        if (window.innerWidth > 768 && isMenuOpen) {
             closeMenu();
         }
     });
 
-    // Функція для відстеження активної секції при прокрутці (без змін, якщо вона працює коректно)
+    // Функція для відстеження активної секції при прокрутці
     const observeActiveSections = () => {
         const sections = document.querySelectorAll('section[id], article[id]');
         const navLinks = document.querySelectorAll('.nav__link[href^="#"]');
@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.6, // Налаштуйте поріг видимості
-            rootMargin: '-78px 0px -50% 0px' // Враховуємо висоту хедера, якщо необхідно
+            threshold: 0.6,
+            rootMargin: '-78px 0px -50% 0px'
         });
 
         sections.forEach(section => {

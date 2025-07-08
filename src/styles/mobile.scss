@@ -24,7 +24,7 @@ body.menu-open {
     max-width: 100%;
     overflow-x: hidden;
   }
-  
+
   // Показати бургер
   .nav__toggle {
     display: block !important;
@@ -37,6 +37,7 @@ body.menu-open {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -48,6 +49,7 @@ body.menu-open {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

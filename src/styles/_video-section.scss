@@ -3,7 +3,7 @@
 
 .culture {
   height: 637px;
-  background-image: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/pexels-jozef-fehe-r-2774140-1.png);
+  background-image: url("https://c.animaapp.com/mck8g5i3vEp5jz/img/pexels-jozef-fehe-r-2774140-1.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -14,6 +14,7 @@
   
   &__container {
     @include mix.container;
+
     height: 100%;
     display: flex;
     align-items: center;
@@ -34,9 +35,15 @@
   
   &__title {
     @include mix.heading(var.$font-size-2xl, var.$color-white, var.$line-height-display);
+
     text-align: center;
     margin: 0;
     max-width: 505px;
+  }
+  
+  &__play-icon {
+    color: var.$color-brown-light;
+    margin-left: 8px; // Оптичне центрування трикутника
   }
   
   &__play-btn {
@@ -64,6 +71,7 @@
       border-bottom: 15px solid transparent;
       border-left: 30px solid var.$color-brown-light;
       transition: border-left-color 0.3s ease-in-out;
+
       // Центруємо іконку поверх span, якщо треба
       position: absolute;
       left: 50%;
@@ -87,14 +95,9 @@
     }
   }
   
-  &__play-icon {
-
-    color: var.$color-brown-light;
-    margin-left: 8px; // Оптичне центрування трикутника
-  }
-  
   &__text {
     @include mix.text-base(var.$font-size-xl, var.$color-white);
+
     line-height: var.$line-height-loose;
     text-align: center;
     margin: 0;

@@ -5,10 +5,14 @@
 @media (max-width: var.$breakpoint-tablet) {
   .hero {
     height: 710px; // За макетом Figma
-    background-image: linear-gradient(0deg, rgba(167, 132, 100, 0.295) -5.615%, rgba(90, 69, 49, 0) 52.259%), none;
+    background-image:
+      linear-gradient(
+        0deg,
+        rgb(167 132 100 / 29.5%) -5.615%,
+        rgb(90 69 49 / 0%) 52.259%
+      ),
+      none;
     background-color: #f0eae6; // Світлий фон як в макеті
-
-
 
     // Декоративні лапки для мобільної версії
     &::after {
@@ -23,25 +27,24 @@
       pointer-events: none;
       z-index: 2;
     }
-    
+
     &__content {
       position: relative;
       display: flex;
       justify-content: center;
     }
-    
+
     &__logo {
       position: relative;
       width: 145px; // За макетом
       height: 145px;
       top: 40px;
-      left: 0px;
+      left: 0;
       object-fit: cover;
     }
-    
+
     &__title {
       position: absolute;
-      padding: 80px;
       width: 100%;
       top: 206px;
       left: 0;
@@ -52,7 +55,7 @@
       color: var.$color-brown-dark;
       padding: 0 20px;
     }
-    
+
     &__subtitle {
       position: absolute;
       width: 310px; // За макетом
@@ -65,19 +68,19 @@
       color: var.$color-brown-dark; // Темний колір як в макеті
     }
   }
-  
+
   .content {
     padding: 79px 0 40px; // Відступи за макетом
-    
+
     &__container {
       max-width: 480px;
-      padding: 0 0px; // Бокові відступи за макетом
+      padding: 0; // Бокові відступи за макетом
     }
-    
+
     &__header {
       margin-bottom: 60px;
     }
-    
+
     &__title {
       font-size: 58px; // За макетом
       line-height: 52px;
@@ -86,7 +89,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     &__subtitle {
       font-size: var.$font-size-xl;
       line-height: var.$line-height-loose;
@@ -94,33 +97,33 @@
       margin: 0 auto;
       padding: 0 3px;
     }
-    
+
     &__body {
       display: block; // Змінюємо з grid на block
       margin-bottom: 69px;
-      padding: 0px 27px;
+      padding: 0 27px;
     }
-    
+
     &__column {
       margin-bottom: 30px;
-      
+
       &:first-child {
         margin-bottom: 50px; // Більший відступ між колонками
       }
     }
-    
+
     &__text {
       font-size: var.$font-size-sm;
       line-height: var.$line-height-relaxed;
       width: 445px; // За макетом для першого тексту
       max-width: 100%;
-      
+
       // Другий текстовий блок
       &:last-child {
         width: 430px; // За макетом для другого тексту
       }
     }
-    
+
     &__actions {
       display: flex;
       justify-content: center;
@@ -131,31 +134,29 @@
 
 // Стилі для екранів 480px і менше
 @media (max-width: var.$breakpoint-mobile) {
-
-  
   .content {
     padding: 79px 0 30px;
     min-height: 996px;
-    
+
     &__header {
       margin-bottom: 69px;
     }
-    
+
     &__title {
       margin-bottom: 39px;
       font-size: 58px; // За макетом
     }
-    
+
     &__subtitle {
       font-size: 22px; // Зменшуємо розмір шрифту
       width: 100%;
     }
-    
+
     &__text {
       width: 100% !important;
       font-size: 16px; // Зменшуємо розмір шрифту для мобільних
     }
-    
+
     &__column:first-child {
       margin-bottom: 24px;
     }

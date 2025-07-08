@@ -5,18 +5,18 @@
 @media (max-width: var.$breakpoint-tablet) {
   .culture {
     height: 630px; // За макетом Figma
-    background-image: url(https://c.animaapp.com/mcs9fmcgWBBPiP/img/pexels-jozef-fehe-r-2774140-1.png);
+    background-image: url('https://c.animaapp.com/mcs9fmcgWBBPiP/img/pexels-jozef-fehe-r-2774140-1.png');
     background-size: cover;
     background-position: center;
-    
+
     &__container {
       padding: 0 20px;
     }
-    
+
     &__content {
       max-width: 100%;
     }
-    
+
     &__title {
       font-size: 53px; // За макетом
       line-height: 50px;
@@ -26,7 +26,7 @@
       text-align: center;
       color: var.$color-white;
     }
-    
+
     &__play-btn {
       width: 100px; // За макетом
       height: 100px;
@@ -37,7 +37,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
-      
+
       // Іконка play всередині кнопки
       &::before {
         content: '';
@@ -51,20 +51,20 @@
         border-bottom: 12px solid transparent;
         border-left: 20px solid white;
       }
-      
+
       &:hover {
         transform: scale(1.05);
-        
+
         &::before {
           border-left-color: white;
         }
       }
     }
-    
+
     &__play-icon {
       display: none; // Ховаємо текстову іконку
     }
-    
+
     &__text {
       font-size: var.$font-size-xl;
       line-height: var.$line-height-loose;
@@ -81,34 +81,33 @@
 @media (max-width: var.$breakpoint-mobile) {
   .culture {
     height: 630px;
-    
+
     &__container {
       padding: 0 15px;
     }
-    
+
     &__content {
       height: 100%;
-
     }
-    
+
     &__title {
       width: 100%;
       padding: 0 15px;
       margin-top: -25px;
     }
-    
+
     &__play-btn {
       width: 80px;
       height: 80px;
       margin: 30px 0;
-      
+
       &::before {
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
         border-left: 16px solid var.$color-brown-light;
       }
     }
-    
+
     &__text {
       font-size: var.$font-size-lg;
       line-height: 32px;

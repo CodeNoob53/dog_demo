@@ -6,7 +6,7 @@
   .footer {
     height: 289px; // Висота з макету
     background-color: var.$color-brown-dark;
-    
+
     &__container {
       // Змінюємо на flex column як в макеті
       display: flex;
@@ -19,7 +19,7 @@
       margin: 0 auto;
       position: relative;
     }
-    
+
     &__logo {
       // Позиціонування як в макеті
       position: absolute;
@@ -31,13 +31,13 @@
       align-items: center;
       gap: 8px;
       margin: 0;
-      
+
       &-img {
         width: 95px; // Розмір з макету
         height: 86px; // Розмір з макету
         object-fit: cover;
       }
-      
+
       &-text {
         font-size: 18px; // Розмір з макету
         letter-spacing: 3.6px; // letter-spacing з макету
@@ -48,7 +48,7 @@
         white-space: nowrap;
       }
     }
-    
+
     &__contact-info {
       // Позиціонування як в макеті
       position: absolute;
@@ -62,7 +62,7 @@
       margin: 0;
       text-align: center;
     }
-    
+
     &__address {
       font-style: normal;
       display: flex;
@@ -70,7 +70,7 @@
       align-items: center;
       gap: 4px;
       margin: 0;
-      
+
       &-line {
         font-size: 16px; // Розмір з макету
         line-height: 19px; // line-height з макету
@@ -79,7 +79,7 @@
         text-align: center;
       }
     }
-    
+
     &__email {
       font-size: 16px; // Розмір з макету
       line-height: 19px; // line-height з макету
@@ -87,13 +87,13 @@
       transition: color 0.3s ease;
       margin: 0;
       text-decoration: none;
-      
+
       &:hover {
         color: var.$color-white;
         opacity: 0.8;
       }
     }
-    
+
     &__copyright {
       // Позиціонування як в макеті
       position: absolute;
@@ -101,7 +101,7 @@
       left: 50%;
       transform: translateX(-50%);
       margin: 0;
-      
+
       &-text {
         font-size: 16px; // Розмір з макету
         line-height: 19px; // line-height з макету
@@ -111,7 +111,7 @@
         margin: 0;
       }
     }
-    
+
     &__brand {
       color: var.$color-white; // В макеті білий колір
     }
@@ -122,46 +122,46 @@
 @media (max-width: var.$breakpoint-mobile) {
   .footer {
     height: 260px; // Трохи менше для маленьких екранів
-    
+
     &__container {
       max-width: 100%;
       padding: 0 15px;
     }
-    
+
     &__logo {
       top: 15px;
-      
+
       &-img {
         width: 80px;
         height: 72px;
       }
-      
+
       &-text {
         font-size: 16px;
         letter-spacing: 3px;
       }
     }
-    
+
     &__contact-info {
       top: 140px;
       gap: 15px;
     }
-    
+
     &__address {
       &-line {
         font-size: 14px;
         line-height: 17px;
       }
     }
-    
+
     &__email {
       font-size: 14px;
       line-height: 17px;
     }
-    
+
     &__copyright {
       bottom: 15px;
-      
+
       &-text {
         font-size: 14px;
         line-height: 17px;

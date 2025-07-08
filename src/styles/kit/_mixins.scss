@@ -18,7 +18,7 @@
   color: $color;
   font-weight: 400;
   
-  @if $line-height != null {
+  @if $line-height {
     line-height: $line-height;
   }
 }
@@ -30,7 +30,7 @@
   color: $color;
   font-weight: 400;
   
-  @if $line-height != null {
+  @if $line-height {
     line-height: $line-height;
   }
 }
@@ -38,6 +38,7 @@
 // Навігаційне посилання
 @mixin nav-link {
   @include text-base(var.$font-size-xs, var.$color-white);
+
   letter-spacing: var.$letter-spacing-wide;
   line-height: var.$line-height-tight;
   text-transform: uppercase;
