@@ -11,7 +11,7 @@
 }
 
 .header {
-  background: url(https://c.animaapp.com/mck8g5i3vEp5jz/img/rectangle-13.svg) center/cover;
+  background-color: var.$color-brown-dark; // Коричневий фон як в макеті
   height: var.$header-height;
   width: 100%;
   position: relative;

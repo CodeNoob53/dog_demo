@@ -6,6 +6,12 @@
   .header {
     height: 90px; // За Figma макетом
     background-color: var.$color-brown-dark; // Коричневий фон як в макеті
+    position: fixed; // Робимо хедер фіксованим
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: var.$z-header; // Високий z-index для видимості поверх контенту
     
     &__container {
       padding: 0 27px; // Відступи як в макеті
@@ -29,6 +35,11 @@
       position: static;
       transform: none;
     }
+  }
+  
+  // Додаємо відступ зверху для body, щоб контент не ховався під хедером
+  .page {
+    padding-top: 90px; // Компенсуємо висоту фіксованого хедера
   }
   
   // Стилі для бургер-меню

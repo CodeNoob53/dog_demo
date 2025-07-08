@@ -1,7 +1,7 @@
 // Оптимізований бургер-меню з підтримкою якорів
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.nav__toggle');
-    const list = document.querySelector('.nav__list');
+    const list = document.querySelector('.nav__list'); // Це ваш контейнер меню
     const links = document.querySelectorAll('.nav__link');
     const body = document.body;
     
@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const openMenu = () => {
         isMenuOpen = true;
         toggle.classList.add('nav__toggle--active');
-        list.classList.add('nav__list--active');
-        body.classList.add('menu-open');
+        list.classList.add('nav__list--active'); // Додаємо клас для показу меню
+        body.classList.add('menu-open'); // Додаємо клас для overflow: hidden на body
+        
+        // Оновлюємо ARIA-атрибути для доступності
         toggle.setAttribute('aria-expanded', 'true');
         list.setAttribute('aria-hidden', 'false');
     };
@@ -23,8 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
         isMenuOpen = false;
         toggle.classList.remove('nav__toggle--active');
-        list.classList.remove('nav__list--active');
-        body.classList.remove('menu-open');
+        list.classList.remove('nav__list--active'); // Видаляємо клас для приховування меню
+        body.classList.remove('menu-open'); // Видаляємо клас для overflow: hidden
+        
+        // Оновлюємо ARIA-атрибути для доступності
         toggle.setAttribute('aria-expanded', 'false');
         list.setAttribute('aria-hidden', 'true');
     };
@@ -36,50 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Події для бургер-кнопки
     toggle.addEventListener('click', (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         toggleMenu();
     });
 
-    // Закриття меню при кліку на якір і обробка активного стану
+    // Закриття меню при натисканні на посилання
     links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            
-            // Якщо це якір, закриваємо меню і прокручуємо
-            if (href.startsWith('#')) {
-                closeMenu();
-                
-                // Видаляємо активний клас з усіх посилань
-                links.forEach(l => l.classList.remove('nav__link--active'));
-                // Додаємо активний клас до поточного
-                link.classList.add('nav__link--active');
-                
-                // Плавна прокрутка до елементу
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100); // Невелика затримка для закриття меню
-                }
-            }
+        link.addEventListener('click', () => {
+            closeMenu();
         });
     });
 
-    // Закриття при кліку поза меню
-    document.addEventListener('click', (e) => {
-        if (isMenuOpen && 
-            !e.target.closest('.nav__toggle') && 
-            !e.target.closest('.nav__list')) {
-            closeMenu();
-        }
-    });
-
-    // Закриття по Escape
+    // Закриття при натисканні Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && isMenuOpen) {
             closeMenu();
@@ -89,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Закриття при зміні розміру вікна (перехід на десктоп)
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && isMenuOpen) {
+        if (window.innerWidth > 768 && isMenuOpen) { // Використовуйте ваш breakpoint для мобільної версії
             closeMenu();
         }
     });
 
-    // Відстеження активної секції при прокрутці
+    // Функція для відстеження активної секції при прокрутці (без змін, якщо вона працює коректно)
     const observeActiveSections = () => {
         const sections = document.querySelectorAll('section[id], article[id]');
         const navLinks = document.querySelectorAll('.nav__link[href^="#"]');
@@ -112,13 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.6,
-            rootMargin: '-78px 0px -50% 0px' // Враховуємо висоту хедера
+            threshold: 0.6, // Налаштуйте поріг видимості
+            rootMargin: '-78px 0px -50% 0px' // Враховуємо висоту хедера, якщо необхідно
         });
 
-        sections.forEach(section => observer.observe(section));
+        sections.forEach(section => {
+            observer.observe(section);
+        });
     };
 
-    // Запускаємо спостереження за секціями
-    observeActiveSections();
+    observeActiveSections(); 
 });
