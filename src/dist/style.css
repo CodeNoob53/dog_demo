@@ -127,8 +127,7 @@
   height: 221px;
   top: 32px;
   left: 137px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   animation: logoFlip 4s ease-in-out infinite;
 }
 .hero__title {
@@ -349,8 +348,7 @@
 .footer__logo-img {
   width: 133px;
   height: 121px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .footer__logo-text {
   letter-spacing: 3.6px;
@@ -492,4 +490,6 @@ a {
 body.menu-open {
   overflow: hidden;
   width: 100%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
